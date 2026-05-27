@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Flourish</title>
+  <meta name="description" content="A modern, responsive plant shop website." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  
+  <header class="site-header">
+  <div class="container header-inner">
+<a class="logo" href="index.html"><img src="images/logo.png" alt="Flourish Plant Store Logo" decoding="async" loading="lazy" /></a>
+    <!-- Hamburger button -->
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+
+    <!-- Nav links -->
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+  <section class="page-hero small">
+    <section class="content-container">
+      <div>
+        <h1 style="text-align: left;">Contact Us</h1>
+        <p style="text-align: left;">Questions, special orders, or services? We’d love to help.</p>
+      </div>
+      <div class="two-col">
+
+        <form action="https://formspree.io/f/xrbybnrd" method="POST" class="contact-form">
+  <div class="form-row">
+    <input type="text" id="name" name="name" placeholder="Name" required>
+  </div>
+  <div class="form-row">
+    <input type="email" id="email" name="email" placeholder="Email" required>
+  </div>
+  <div class="form-row">
+    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+  </div>
+  <div class="form-row">
+    <textarea id="message" name="message" rows="3" placeholder="Message"></textarea>
+  </div>
+  
+  <!-- Optional hidden fields -->
+  <input type="hidden" name="_subject" value="New message from Flourish Website">
+  <input type="text" name="_gotcha" style="display:none"> <!-- spam honeypot -->
+
+  <button class="btn btn-outline contact-btn" type="submit">Send Message</button>
+</form>
+
+
+        <div>
+          <div class="contact-card">
+            <h3>Visit</h3>
+            <p>64702 Cook Ave<br>Bend, OR 97703</p>
+            <h3>Hours</h3>
+            <p>Wed – Sat • 10:00 AM — 5:30 PM</p>
+            <h3>Contact</h3>
+            <p><a href="mailto:info@example.com" style="">contact@flourishoftumalo.com</a><br><a
+                href="tel:(541) 797- 0124"> (541) 797- 0124</a></p>
+            <h3>Follow</h3>
+            <p><a href="https://www.instagram.com/flourishoftumalo/">Instagram</a> • <a
+                href="https://www.facebook.com/FlourishOfTumalo/">Facebook</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Flourish</h4>
+        <p style="line-height: 190%;">
+          64702 Cook Ave, Bend OR <br>contact@flourishoftumalo.com <br>(541) 797- 0124
+          </br></p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Wed – Sat<br>10:00 AM – 5:30 PM</br></p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul class="social">
+          <li><a href="https://www.instagram.com/flourishoftumalo/">Instagram</a></li>
+          <li><a href="https://www.facebook.com/FlourishOfTumalo/">Facebook</a></li>
+          </li>
+      </div>
+      <!-- <div>
+        <h4>Newsletter</h4>
+        <form action="#" class="newsletter" method="post">
+          <input name="email" placeholder="Your email address" required="" type="email" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div> -->
+    </div>
+    <div class="copyright">
+      © <span id="year"></span> Flourish • All rights reserved.
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav');
+  navToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+  </script>
+</body>
+
+</html>
