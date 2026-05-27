@@ -20,22 +20,23 @@
 
 <body>
   <header class="site-header">
-  <div class="container header-inner">
-<a class="logo" href="index.html"><img src="images/logo.png" alt="Flourish Plant Store Logo" decoding="async" loading="lazy" /></a>
-    <!-- Hamburger button -->
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      ☰
-    </button>
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="Flourish Plant Store Logo" decoding="async"
+          loading="lazy" /></a>
+      <!-- Hamburger button -->
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
 
-    <!-- Nav links -->
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+      <!-- Nav links -->
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <section class="hero hero-bg">
     <div class="container hero-overlay" data-reveal-stagger="">
@@ -110,43 +111,55 @@
     <div class="about-offer__grid">
       <!-- LEFT PANEL -->
       <div class="offer-left" data-reveal-stagger>
-        <p class="eyebrow" data-reveal="up">My Services</p>
-        <h2 id="bonsai-class-heading" class="offer-title" data-reveal="up">
-          Start your <em>bonsai</em> journey.
-        </h2>
-        <p class="offer-blurb" data-reveal="up" style="--delay: 100ms">
-          Our Bonsai Class walks you through selection, shaping, wiring, and
-          long-term care—hands-on and beginner-friendly. Leave with a living
-          artwork and the know-how to help it thrive.
-        </p>
-        <a href="about.html" class="learn-more">Learn More →</a>
+        <p class="eyebrow" data-reveal="up">Our Classes</p>
 
-        <!-- small photo tile (plug your own image) -->
-        <figure class="offer-photo" data-reveal="up" style="--delay: 260ms">
+        <h2 id="bonsai-class-heading" class="offer-title" data-reveal="up">
+          Learn, create, and grow with <em>Flourish</em>.
+        </h2>
+
+        <p class="offer-blurb" data-reveal="up" style="--delay: 100ms">
+          Flourish occasionally hosts hands-on workshops focused on plants, flowers,
+          and creativity — including bonsai shaping, Ikebana floral arrangement, and
+          other seasonal classes.
+          <br><br>
+          We do not currently have any classes scheduled, but reach out if you’d like
+          to learn more or stay updated on future workshops.
+        </p>
+
+        <a href="contact.html" class="learn-more">Get In Touch →</a>
+
+        <!-- small photo tile -->
+        <!-- <figure class="offer-photo" data-reveal="up" style="--delay: 260ms">
           <img src="images/bonsai-class.jpeg" />
-        </figure>
+        </figure> -->
       </div>
 
-      <!-- RIGHT PANEL: no background style here -->
+      <!-- RIGHT PANEL -->
       <aside class="offer-right" aria-label="Bonsai class details">
         <ul class="offer-list" style="list-style: none;" data-reveal-stagger>
+
           <li class="offer-step" data-reveal="up">
-            <h3>Vision & Selection</h3>
-            <p>Choose a tree, learn styles, and set a plan that fits your space and lifestyle.</p>
+            <h3>Creative Techniques</h3>
+            <p>Learn artistic approaches used in bonsai shaping, floral arranging, and plant styling.</p>
           </li>
+
           <li class="offer-step" data-reveal="up">
-            <h3>Wiring & Shaping</h3>
-            <p>Hands-on instruction to shape branches safely and create graceful movement.</p>
+            <h3>Hands-On Guidance</h3>
+            <p>Follow step-by-step instruction in a welcoming, beginner-friendly environment.</p>
           </li>
+
           <li class="offer-step" data-reveal="up">
-            <h3>Potting & Soil</h3>
-            <p>Repot into the right vessel with balanced substrate, drainage, and top-dress.</p>
+            <h3>Plant Care Knowledge</h3>
+            <p>Build confidence with practical tips for watering, pruning, maintenance, and long-term care.</p>
           </li>
+
           <li class="offer-step" data-reveal="up">
-            <h3>Care & Aftercare</h3>
-            <p>Watering rhythm, light, pruning cadence, and seasonal checklists to keep it healthy.</p>
+            <h3>Community & Inspiration</h3>
+            <p>Connect with fellow plant lovers while exploring creativity through nature and design.</p>
           </li>
+
         </ul>
+
       </aside>
     </div>
   </section>
@@ -162,7 +175,7 @@
       </div>
       <div>
         <h4>Hours</h4>
-        <p>Wed – Sat<br>10:00 AM – 5:30 PM</br></p>
+        <p>Wed – Sat<br>10:00 AM – 5:00 PM</br></p>
       </div>
       <div>
         <h4>Follow</h4>
@@ -222,10 +235,10 @@
       document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
     })();
     const navToggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
-  navToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
+    const nav = document.querySelector('.nav');
+    navToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
   </script>
 </body>
 
