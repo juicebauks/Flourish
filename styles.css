@@ -575,6 +575,48 @@ p {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
+
+
+
+.nav a::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-color: #d6e591;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+
+.nav a:hover::before {
+  transform: scaleY(1);
+}
+
+
+.nav a {
+  margin-left: 1rem;
+  padding: 0.4rem 0.6rem;
+  position: relative;
+  display: inline-block;
+  color: #8ea86d;
+  text-decoration: none;
+  transition:
+    transform 0.30s ease,
+    color 0.25s ease,
+    opacity 0.25s ease;
+  font-weight: 400;
+}
+
+.nav a:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.15);
+  color: #d6e591;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -597,20 +639,6 @@ p {
   color: var(--color-deep);
   text-decoration: none;
 }
-
-.nav a {
-  text-decoration: none;
-  margin-left: 1rem;
-  padding: 0.4rem 0.6rem;
-  border-radius: 0.6rem;
-
-}
-
-.nav a:hover {
-  transition: .3s ease;
-  color: var(--color-ink);
-}
-
 
 /* =========================================================
    13. Home Hero & Image Banner
@@ -1818,20 +1846,24 @@ textarea:focus {
   margin-inline: auto;
 }
 
-.site-header .nav a {
-  color: var(--color-accent-3);
+/* .site-header .nav a {
+    text-decoration: none;
   font-size: 1.2rem;
-}
+    color: #adcd77;
+
+} */
 
 .site-header.scrolled .nav a {
   color: var(--color-accent-3)
 }
 
-.site-header .nav a:hover {
+/* .site-header .nav a:hover {
   opacity: 1;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
+  transform: scale(1.08);
+  filter: brightness(1.2);
+  text-decoration: none;
+      color: #ffffff;
+} */
 
 
 /* =========================================================
