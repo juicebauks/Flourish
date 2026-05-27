@@ -15,24 +15,25 @@
 </head>
 
 <body>
-  
-  <header class="site-header">
-  <div class="container header-inner">
-<a class="logo" href="index.html"><img src="images/logo.png" alt="Flourish Plant Store Logo" decoding="async" loading="lazy" /></a>
-    <!-- Hamburger button -->
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      ☰
-    </button>
 
-    <!-- Nav links -->
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="Flourish Plant Store Logo" decoding="async"
+          loading="lazy" /></a>
+      <!-- Hamburger button -->
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <!-- Nav links -->
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
 
   <section class="page-hero small">
@@ -44,25 +45,25 @@
       <div class="two-col">
 
         <form action="https://formspree.io/f/xrbybnrd" method="POST" class="contact-form">
-  <div class="form-row">
-    <input type="text" id="name" name="name" placeholder="Name" required>
-  </div>
-  <div class="form-row">
-    <input type="email" id="email" name="email" placeholder="Email" required>
-  </div>
-  <div class="form-row">
-    <input type="text" id="subject" name="subject" placeholder="Subject" required>
-  </div>
-  <div class="form-row">
-    <textarea id="message" name="message" rows="3" placeholder="Message"></textarea>
-  </div>
-  
-  <!-- Optional hidden fields -->
-  <input type="hidden" name="_subject" value="New message from Flourish Website">
-  <input type="text" name="_gotcha" style="display:none"> <!-- spam honeypot -->
+          <div class="form-row">
+            <input type="text" id="name" name="name" placeholder="Name" required>
+          </div>
+          <div class="form-row">
+            <input type="email" id="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-row">
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-row">
+            <textarea id="message" name="message" rows="3" placeholder="Message"></textarea>
+          </div>
 
-  <button class="btn btn-outline contact-btn" type="submit">Send Message</button>
-</form>
+          <!-- Optional hidden fields -->
+          <input type="hidden" name="_subject" value="New message from Flourish Website">
+          <input type="text" name="_gotcha" style="display:none"> <!-- spam honeypot -->
+
+          <button class="btn btn-outline contact-btn" type="submit">Send Message</button>
+        </form>
 
 
         <div>
@@ -70,7 +71,7 @@
             <h3>Visit</h3>
             <p>64702 Cook Ave<br>Bend, OR 97703</p>
             <h3>Hours</h3>
-            <p>Wed – Sat • 10:00 AM — 5:00 PM</p>
+            <p>Wed – Sat • 10:00 AM — 5:30 PM</p>
             <h3>Contact</h3>
             <p><a href="mailto:info@example.com" style="">contact@flourishoftumalo.com</a><br><a
                 href="tel:(541) 797- 0124"> (541) 797- 0124</a></p>
@@ -95,7 +96,7 @@
       </div>
       <div>
         <h4>Hours</h4>
-        <p>Wed – Sat<br>10:00 AM – 5:30 PM</br></p>
+        <p>Wed – Sat<br>10:00 AM – 5:00 PM</br></p>
       </div>
       <div>
         <h4>Follow</h4>
@@ -119,10 +120,10 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     const navToggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
-  navToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-  });
+    const nav = document.querySelector('.nav');
+    navToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
   </script>
 </body>
 
