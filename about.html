@@ -17,8 +17,32 @@
     rel="stylesheet" />
 
 </head>
+<style>
+  .split-feature__text p {
 
-<body class="about-page">
+    color: aliceblue;
+  }
+
+  <style>.split-feature__text p {
+    color: aliceblue;
+  }
+
+  .products-page .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    z-index: 9999;
+    background-color: var(--color-accent-6);
+    /* your brand Fuscous Gray with opacity */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+</style>
+
+<body class="products-page">
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html"><img src="images/logo.png" alt="Flourish Plant Store Logo" decoding="async"
@@ -39,38 +63,36 @@
   </header>
 
 
-  <section class="page-hero small">
+  <!-- <section class="page-hero small">
     <div class="container">
       <h1>About Us</h1>
       <p>Plants, family, and community — that’s our soil.</p>
     </div>
-  </section>
+  </section> -->
 
 
   <section class="about-mission">
     <section class="collection-section">
-        <div class="collection-header">
-          <p class="eyebrow">Who we are</p>
+      <div class="collection-header">
+        <p class="eyebrow">Who we are</p>
 
-          <div class="divider">
-            <span></span>
-            <img src="images/SM-leaf.svg" alt="" class="leaf-icon" aria-hidden="true">
-            <span></span>
-          </div>
-
-          <h2>Planting Roots in Tumalo, OR</h2>
+        <div class="divider">
+          <span></span>
+          <img src="images/SM-leaf.svg" alt="" class="leaf-icon" aria-hidden="true">
+          <span></span>
         </div>
 
+        <h2>Planting Roots in Tumalo, OR</h2>
+      </div>
 
-      </section>
+
+    </section>
     <section class="content-container2">
 
-      <img 
-  src="images/about-1.jpg" 
-  class="about-image"
-  alt="Flourish Store" 
-/>
-      <div class="content-text">
+      <img src="images/about-1.jpg" class="about-image" alt="Flourish Store" data-reveal="fade"
+        style=" --reveal-duration: 4000ms;" />
+      <div class="content-text" data-reveal="up" style="--delay: 200ms; --reveal-duration: 1600ms;
+--reveal-distance: 50px;">
         <p>
           <br>Flourish is a family-owned plant store located in the charming town
           of Tumalo, Oregon, just minutes from Bend. What began as a small
@@ -99,56 +121,76 @@
         homes and communities that thrive with greenery, beauty, and art.
       </p>
 
-      <h3 class="how-title">Ways to Flourish</h3>
+      <!-- <h3 class="how-title">Ways to Flourish</h3> -->
 
       <div class="timeline-grid">
+
         <!-- Row 1 -->
-        <div class="text-right">
+        <div class="text-right plants-text" data-reveal="fade" style="--reveal-duration: 2000ms;">
           <h4>Plants</h4>
+
           <p>
-            Flourish began with a love of tropical and rare plants, and that passion is at the root of everything we do.
-            From resilient houseplants to unique specimens, we provide guidance and care tips so every plant
-            parent—whether
-            beginner or seasoned—can succeed. With personalized advice and resources, we help you grow plants that fit
-            your
-            lifestyle and environment.
+            Flourish began with a love of tropical and rare plants, and that passion
+            is at the root of everything we do. From resilient houseplants to unique
+            specimens, we provide guidance and care tips so every plant
+            parent—whether beginner or seasoned—can succeed. With personalized
+            advice and resources, we help you grow plants that fit your lifestyle
+            and environment.
           </p>
         </div>
-        <div class="t-item image">
-          <img src="images/tile-plants.jpg" alt="Plants on display">
+
+        <div class="t-item image plants-image">
+          <img src="images/tile-plants.jpg" alt="Plants on display" data-reveal="left" style="
+        --reveal-duration: 1200ms;
+        --delay: 150ms;
+      ">
         </div>
 
         <!-- Row 2 -->
-        <div class="t-item image">
-          <img src="images/tile-flowers.jpg" alt="Flower arrangements">
+        <div class="t-item image flowers-image">
+          <img src="images/tile-flowers.jpg" alt="Flowers" data-reveal="right" style="
+        --reveal-duration: 1200ms;
+        --delay: 150ms;
+      ">
         </div>
-        <div class="t-item text text-left"><!-- ← added text-left -->
+
+        <div class="t-item text text-left flowers-text" data-reveal="fade" style="
+      --reveal-duration: 2000ms;
+      --delay: 200ms;
+    ">
           <h4>Flowers</h4>
+
           <p>
-            Flowers bring joy, color, and expression to everyday life. Our selection of blooms celebrates the artistry
-            of
-            nature, offering arrangements that inspire and uplift. From simple stems to bold bouquets, we teach our
-            community how to care for flowers and incorporate them into their homes and celebrations. Each flower we
-            share
-            is chosen to brighten spaces and moments alike.
+            Flowers bring joy, color, and expression to everyday life. Our selection
+            of blooms celebrates the artistry of nature, offering arrangements that
+            inspire and uplift. From simple stems to bold bouquets, we teach our
+            community how to care for flowers and incorporate them into their homes
+            and celebrations. Each flower we share is chosen to brighten spaces and
+            moments alike.
           </p>
         </div>
 
         <!-- Row 3 -->
-        <div class="text-right">
+        <div class="text-right art-text" data-reveal="fade" style="--reveal-duration: 2000ms;">
           <h4>Art</h4>
+
           <p>
-            At Flourish, creativity blooms alongside greenery. We feature original metal art and crafted pieces that
-            complement natural beauty, turning plant care into a full experience of design and expression. Our art
-            offerings
-            highlight the connection between nature and creativity—where every leaf, petal, and crafted piece tells a
-            story
-            and enriches your environment.
+            At Flourish, creativity blooms alongside greenery. We feature original
+            metal art and crafted pieces that complement natural beauty, turning
+            plant care into a full experience of design and expression. Our art
+            offerings highlight the connection between nature and creativity—where
+            every leaf, petal, and crafted piece tells a story and enriches your
+            environment.
           </p>
         </div>
-        <div class="t-item image">
-          <img src="images/tile-art.jpg" alt="Art pieces displayed on wall">
+
+        <div class="t-item image art-image">
+          <img src="images/tile-art.jpg" alt="Art pieces displayed on wall" data-reveal="left" style="
+        --reveal-duration: 1200ms;
+        --delay: 150ms;
+      ">
         </div>
+
       </div>
 
       <div class="mission-goal">
@@ -161,10 +203,10 @@
       </div>
     </div>
   </section>
-  <section class="split-feature">
+  <!-- <section class="split-feature">
     <div class="split-feature__text" data-reveal-stagger="">
       <h2 data-reveal="up" style="color: #effe97;">Join Our Bonsai Class</h2><br />
-      <p data-reveal="up" style="--delay: 100ms">
+      <p data-reveal="up" style=" --delay: 100ms">
         We are excited to host <strong>Steve Iwaki</strong>, a second-generation Bonsai Master, for two special classes
         on
         <strong>Friday, October 3, 2025</strong>. In these sessions, Steve will guide us through the species
@@ -193,7 +235,7 @@
     </div>
     <div aria-hidden="true" aria-label="Shelves with plant pots" class="split-feature__image" data-reveal="left"
       role="img"></div>
-  </section>
+  </section> -->
 
 
 
@@ -208,7 +250,7 @@
       </div>
       <div>
         <h4>Hours</h4>
-        <p>Wed – Sat<br>10:00 AM – 5:30 PM</br></p>
+        <p>Wed – Sat<br>10:00 AM – 5:00 PM</br></p>
       </div>
       <div>
         <h4>Follow</h4>
