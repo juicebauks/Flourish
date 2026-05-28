@@ -1250,12 +1250,15 @@ p {
 }
 
 .content-container {
-  max-width: 1200px;
+  max-width: 1300px;
   /* keeps the section from running edge to edge */
   margin: 0 auto;
   /* centers it on the page */
-  padding: 2rem 1.5rem 80px;
+  padding: 3rem 4rem;
   /* adds breathing room on small screens */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(14px) saturate(120%);
@@ -1324,7 +1327,6 @@ p {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: start;
-  margin-bottom: 2rem;
 }
 
 .two-col.reverse {
@@ -1368,6 +1370,7 @@ textarea {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.6rem;
   font: inherit;
+  width: 100%;
 }
 
 input:focus,
@@ -1384,7 +1387,6 @@ textarea:focus {
 .contact-card {
   border-radius: 1rem;
   padding: 1rem;
-  margin-bottom: 1rem;
 }
 
 .contact-card h3 {
@@ -2636,9 +2638,7 @@ a[href^="mailto"]:hover {
     margin-bottom: 0.15rem;
   }
 
-  .contact-card p {
-    margin-bottom: 0.5rem;
-  }
+  .contact-card p {}
 
   .contact-btn {
     width: 100%;
