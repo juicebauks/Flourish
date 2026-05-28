@@ -602,7 +602,7 @@ p {
   padding: 0.4rem 0.6rem;
   position: relative;
   display: inline-block;
-  color: #8ea86d;
+  color: #a9ca7c;
   text-decoration: none;
   transition:
     transform 0.30s ease,
@@ -1239,8 +1239,12 @@ p {
    ========================================================= */
 
 .page-hero.small {
-  background: url("images/hero-main.jpg") center/cover no-repeat;
-  padding: 2.5rem 0;
+  position: relative;
+  background: url("images/hero-main.jpg") center / cover no-repeat;
+  min-height: 100vh;
+  padding: 7rem 1rem 4rem;
+  display: flex;
+  align-items: center;
   text-align: center;
 
 }
