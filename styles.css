@@ -1,6 +1,4 @@
-/* =========================================================
-   01. Design Tokens & CSS Variables
-   ========================================================= */
+
 
 :root {
   --color-deep: #3e442a;
@@ -14,43 +12,30 @@
   --color-accent-5: #e1d4c3;
   --color-accent-6: #2b2f20;
   --color-accent-7: #cfe98d;
-  /* Global max width for main content containers */
+
   --fl-maxw: 1600px;
 }
-
-
-/* =========================================================
-   02. Reset & Global Base Styles
-   ========================================================= */
 
 * {
   box-sizing: border-box;
 }
 
-
-/* =========================================================
-   03. Branding, Logo & Link/Button Foundations
-   ========================================================= */
-
-/* Logo image */
 .logo img {
   height: 30px;
-  /* adjust to fit your design */
+
   width: auto;
   display: block;
 }
 
-/* Plain button — no border */
 .learn-more {
   color: var(--color-accent-5);
-  /* Woodland or whichever brand color */
+
   font-weight: 600;
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
 }
 
-/* subtle underline effect on hover */
 .learn-more::after {
   content: "";
   position: absolute;
@@ -65,7 +50,7 @@
 }
 
 .learn-more:hover {
-  /* highlight color */
+
 }
 
 .learn-more:hover::after {
@@ -73,25 +58,17 @@
   transform-origin: left;
 }
 
-
-/* Hover + focus effects */
 .btn-plain:hover,
 .btn-plain:focus {
   background: var(--deep);
-  /* darken on hover (Woodland) */
+
   transform: translateY(-2px);
 }
 
-/* Optional: add a disabled state */
 .btn-plain:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
-
-
-/* =========================================================
-   04. Typography Base Styles
-   ========================================================= */
 
 h1,
 h2,
@@ -103,11 +80,6 @@ h4,
   letter-spacing: .2px;
 }
 
-
-/* =========================================================
-   05. Body & Page Base Styles
-   ========================================================= */
-
 body {
   margin: 0;
   font-family: var(--fl-sans);
@@ -118,16 +90,8 @@ body {
 
 body.about-page {
 
-  /* your Flourish beige */
 }
 
-
-/* =========================================================
-   06. About Offer / Bonsai Feature Section
-   ========================================================= */
-
-/* ===== About Offer (floating left card over full-bleed BG) ===== */
-/* ===== About Offer (floating left card over full-bleed BG) ===== */
 .about-offer {
   background-image: var(--offer-bg);
   background-size: cover;
@@ -143,14 +107,12 @@ body.about-page {
   margin: 0 auto;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .about-image {
     width: 90%;
   }
 }
 
-/* subtle dark gradient over the BG (heavier on right for list legibility) */
 .about-offer::before {
   content: "";
   position: absolute;
@@ -171,16 +133,14 @@ body.about-page {
   display: grid;
   gap: var(--gap);
   grid-template-columns: 1fr;
-  /* mobile */
+
   align-items: start;
   padding-inline: clamp(16px, 4vw, 32px);
 
-  /* tightened spacing between columns */
   --gap: clamp(126px, 6vw, 20px);
   column-gap: var(--gap);
 }
 
-/* Floating left card */
 .offer-left {
   background: var(--color-ink);
   color: var(--sand);
@@ -240,7 +200,6 @@ body.about-page {
   opacity: 70%;
 }
 
-/* subtle “notch” overlap effect */
 .offer-photo::after {
   content: "";
   position: absolute;
@@ -253,13 +212,12 @@ body.about-page {
   z-index: -1;
 }
 
-/* RIGHT PANEL */
 .offer-right {
   position: relative;
   min-height: auto;
   overflow: visible;
   background: none !important;
-  /* kills background image inheritance */
+
   color: #f6f4ee;
 }
 
@@ -269,7 +227,6 @@ body.about-page {
   inset: 0;
 }
 
-/* List inside right column */
 .offer-list {
   counter-reset: step;
   position: relative;
@@ -277,7 +234,6 @@ body.about-page {
   color: #f7f5f0;
   padding: clamp(24px, 4vw, 48px);
 
-  /* pulled closer to center */
   padding-left: clamp(12px, 0.8vw, 16px);
   padding-right: clamp(8px, 0.6vw, 12px);
 
@@ -288,7 +244,7 @@ body.about-page {
 .offer-step {
   counter-increment: step;
   padding: 18px 18px 18px 84px;
-  /* reduced from 94px */
+
   border-radius: 999px;
   backdrop-filter: saturate(110%) blur(2px);
   position: relative;
@@ -298,7 +254,7 @@ body.about-page {
   content: counter(step, decimal-leading-zero) ".";
   position: absolute;
   left: 14px;
-  /* reduced from 18px */
+
   top: 50%;
   transform: translateY(-50%);
   font-family: var(--fl-serif);
@@ -321,48 +277,38 @@ body.about-page {
   font-size: .98rem;
 }
 
-/* Desktop column layout */
 @media (min-width: 992px) {
   .about-offer__grid {
     grid-template-columns: minmax(340px, 520px) 1fr;
-    /* tighter left column */
+
     column-gap: var(--gap);
     align-items: stretch;
   }
 
   .offer-left {
     margin-right: 0;
-    /* removed extra spacing */
+
   }
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .offer-photo::after {
     display: none;
   }
 }
 
-
-
-/* =========================================================
-   07. Scroll Reveal Animation System
-   ========================================================= */
-
-/* ===== Scroll Reveal (Flourish) ===== */
 :root {
   --reveal-distance: 28px;
   --reveal-duration: 700ms;
   --reveal-ease: cubic-bezier(.22, .61, .36, 1);
-  /* natural ease */
+
   --reveal-stagger: 90ms;
-  /* per-child delay */
+
   --fl-serif: "Fraunces", serif;
-  /* elegant, organic */
+
   --fl-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Start state (hidden) */
 [data-reveal] {
   opacity: 0;
   transform: translate3d(0, var(--reveal-distance), 0) scale(0.995);
@@ -370,16 +316,14 @@ body.about-page {
     opacity var(--reveal-duration) var(--reveal-ease),
     transform var(--reveal-duration) var(--reveal-ease);
   will-change: transform, opacity;
-  /* GPU-friendly */
+
 }
 
-/* When visible, animate to final */
 [data-reveal].is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-/* Direction variants */
 [data-reveal="up"] {
   transform: translate3d(0, var(--reveal-distance), 0) scale(0.995);
 }
@@ -400,17 +344,14 @@ body.about-page {
   transform: none;
 }
 
-/* Optional: per-element delay with inline custom prop */
 [data-reveal][style*="--delay"] {
   transition-delay: var(--delay);
 }
 
-/* Stagger: apply to a parent to auto-delay its direct children */
 [data-reveal-stagger]>*[data-reveal] {
   transition-delay: calc(var(--reveal-index, 0) * var(--reveal-stagger));
 }
 
-/* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
 
   [data-reveal],
@@ -420,11 +361,6 @@ body.about-page {
     transition: none !important;
   }
 }
-
-
-/* =========================================================
-   08. Buttons & Utility Links
-   ========================================================= */
 
 .btn {
   display: inline-block;
@@ -467,11 +403,6 @@ body.about-page {
   color: var(--color-deep);
 }
 
-
-/* =========================================================
-   09. Contact Info Link Styles
-   ========================================================= */
-
 .contact-info {
   font-size: 1rem;
   line-height: 1.6;
@@ -483,19 +414,14 @@ body.about-page {
 
 .contact-link {
   color: #bcc973;
-  /* Use your brand deep green */
+
   text-decoration: none;
 }
 
 .contact-link:hover {
   text-decoration: underline;
-  /* Optional: makes it clear they’re clickable */
+
 }
-
-
-/* =========================================================
-   10. General Typography Elements
-   ========================================================= */
 
 h1,
 h2,
@@ -522,11 +448,6 @@ p {
   margin: 0 0 1rem;
 }
 
-
-/* =========================================================
-   11. Containers & Layout Utilities
-   ========================================================= */
-
 .container {
   width: min(100px, 92%);
   margin: 0 auto;
@@ -540,10 +461,6 @@ p {
   font-size: 0.95rem;
 }
 
-
-/* =========================================================
-   12. Header & Navigation
-   ========================================================= */
 .products-page .navbar {
   position: fixed;
   top: 0;
@@ -559,7 +476,6 @@ p {
   padding-top: 0;
 }
 
-/* Default: transparent navbar */
 .site-header {
   position: fixed;
   top: 0;
@@ -571,12 +487,9 @@ p {
 
 .site-header.scrolled {
   background-color: var(--color-accent-6);
-  /* your brand Fuscous Gray with opacity */
+
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
-
-
-
 
 .nav a::before {
   content: "";
@@ -595,7 +508,6 @@ p {
 .nav a:hover::before {
   transform: scaleY(1);
 }
-
 
 .nav a {
   margin-left: 1rem;
@@ -640,24 +552,20 @@ p {
   text-decoration: none;
 }
 
-/* =========================================================
-   13. Home Hero & Image Banner
-   ========================================================= */
-
 .hero-bg {
   position: relative;
   background: url("images/BG2.jpg") center/cover no-repeat;
   text-align: left;
   height: 80vh;
-  /* full screen */
+
   display: flex;
-  /* enable flexbox */
+
   align-items: end;
-  /* vertical centering */
+
   justify-content: end;
-  /* horizontal centering */
+
   padding: 0vh 1rem;
-  /* keep side padding */
+
 }
 
 .hero-bg h1,
@@ -681,7 +589,7 @@ p {
   position: relative;
   background: url("images/leaves.jpg") center/cover no-repeat;
   height: 70vh;
-  /* or 100vh if you want full screen */
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -689,28 +597,17 @@ p {
   padding: 0 1rem;
 }
 
-
-/* =========================================================
-   14. Alternate Brand Variable Aliases
-   ========================================================= */
-
 :root {
   --ink: #5b584b;
-  /* Fuscous Gray */
+
   --deep: #3d4c2f;
-  /* Woodland */
+
   --brand: #7ba357;
-  /* Chalet Green */
+
   --sand: #dbd7cc;
-  /* Westar */
+
 }
 
-
-/* =========================================================
-   15. Split Feature Sections
-   ========================================================= */
-
-/* 1) Split feature */
 .split-feature {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -742,13 +639,13 @@ p {
 
 .split-feature__image {
   background: url("images/bonsaitrim.webp") center/cover no-repeat;
-  /* replace */
+
 }
 
 .split-feature__image2 {
   background: url("images/mkstudio.webp") center/cover no-repeat;
   background-color: rgb(54, 54, 54);
-  /* replace */
+
 }
 
 .btn {
@@ -780,20 +677,14 @@ p {
   }
 }
 
-
-/* =========================================================
-   16. Icon Strip Section
-   ========================================================= */
-
-/* 2) Icon strip over background */
 .icon-strip {
   position: relative;
   background: url("images/hero-main.webp") center/cover no-repeat;
-  /* replace */
+
 }
 
 .icon-strip::before {
-  /* dark tint for readability */
+
   content: "";
   position: absolute;
   inset: 0;
@@ -836,14 +727,6 @@ p {
   }
 }
 
-
-/* =========================================================
-   17. Product Category Cards
-   ========================================================= */
-
-/* 3) Pillars */
-
-
 .category-section {
   padding: clamp(1.3rem, 5vw, 5rem) clamp(1rem, 4vw, 4rem);
 }
@@ -885,8 +768,6 @@ p {
   background: #fffaf1;
   box-shadow: 0 18px 45px rgba(47, 59, 42, 0.12);
 }
-
-
 
 .category-card img {
   display: block;
@@ -955,21 +836,18 @@ p {
   color: #24291f;
 }
 
-/* Large Tablets */
 @media (max-width: 1300px) {
   .category-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Tablets */
 @media (max-width: 900px) {
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile */
 @media (max-width: 650px) {
 
   .category-section {
@@ -990,12 +868,6 @@ p {
   }
 }
 
-
-/* =========================================================
-   18. Pillars Section - Unused
-   ========================================================= */
-
-/* 3) Pillars un-used*/
 .pillars {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1006,7 +878,7 @@ p {
 .pillar {
   position: relative;
   isolation: isolate;
-  /* ensure overlay layers clip correctly */
+
 }
 
 .pillar::before {
@@ -1016,7 +888,7 @@ p {
   position: absolute;
   inset: 0;
   background: var(--deep);
-  /* fallback */
+
   background-image: var(--bg);
   background-size: cover;
   background-position: center;
@@ -1059,18 +931,11 @@ p {
   }
 }
 
-
-/* =========================================================
-   19. CTA Rows & General Content Blocks
-   ========================================================= */
-
 .cta-row {
   display: flex;
   gap: 0.75rem;
   margin-top: 1rem;
 }
-
-
 
 .badges {
   padding: 1.2rem 0;
@@ -1232,11 +1097,6 @@ p {
   border-radius: 0.4rem;
 }
 
-
-/* =========================================================
-   20. Interior Page Hero & Content Containers
-   ========================================================= */
-
 .page-hero.small {
   position: relative;
   background: url("images/hero-main.webp") center / cover no-repeat;
@@ -1250,11 +1110,11 @@ p {
 
 .content-container {
   max-width: 1300px;
-  /* keeps the section from running edge to edge */
+
   margin: 0 auto;
-  /* centers it on the page */
+
   padding: 3rem 4rem;
-  /* adds breathing room on small screens */
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1262,18 +1122,18 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(14px) saturate(120%);
   -webkit-backdrop-filter: blur(14px) saturate(120%);
-  /* Safari */
+
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
 }
 
 .content-container2 {
   max-width: 1200px;
-  /* keeps the section from running edge to edge */
+
   margin: 0 auto;
-  /* centers it on the page */
+
   padding: 2rem 1.5rem 80px;
-  /* adds breathing room on small screens */
+
   align-items: center;
 
 }
@@ -1285,18 +1145,18 @@ p {
 
 .content-container img {
   max-width: 350px;
-  /* controls how large the image gets */
+
   width: 100%;
-  /* responsive scaling */
+
   height: auto;
-  /* keeps proportions */
+
   flex-shrink: 0;
-  /* prevents shrinking weirdly */
+
 }
 
 .content-container .content-text {
   flex: 1;
-  /* text takes up remaining space */
+
 }
 
 .content-text {
@@ -1315,11 +1175,6 @@ p {
     margin-bottom: 1.5rem;
   }
 }
-
-
-/* =========================================================
-   21. Two Column Layouts & Forms
-   ========================================================= */
 
 .two-col {
   display: grid;
@@ -1400,11 +1255,6 @@ textarea:focus {
   border-radius: 0.7rem;
 }
 
-
-/* =========================================================
-   22. Footer
-   ========================================================= */
-
 .site-footer {
   background: var(--color-accent-6);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -1462,12 +1312,6 @@ textarea:focus {
   color: var(--color-accent-4);
 }
 
-
-/* =========================================================
-   23. Global Responsive Rules
-   ========================================================= */
-
-/* Responsive */
 @media (max-width: 920px) {
 
   .hero-inner,
@@ -1519,13 +1363,6 @@ textarea:focus {
   }
 }
 
-
-
-/* =========================================================
-   24. Scoped Reveal Animation Overrides
-   ========================================================= */
-
-/* Reveal speed utilities */
 .reveal-slow {
   --reveal-duration: 900ms;
 }
@@ -1534,9 +1371,6 @@ textarea:focus {
   --reveal-duration: 550ms;
 }
 
-/* ===== Scroll Reveal (scoped) ===== */
-
-/* Start state (hidden) — ONLY when JS has enabled reveals */
 .reveal-enabled [data-reveal] {
   opacity: 0;
   transform: translate3d(0, var(--reveal-distance, 28px), 0) scale(0.995);
@@ -1550,13 +1384,11 @@ textarea:focus {
   transition-delay: var(--delay);
 }
 
-/* When visible */
 .reveal-enabled [data-reveal].is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-/* Direction variants */
 .reveal-enabled [data-reveal="down"] {
   transform: translate3d(0, -28px, 0) scale(0.995);
 }
@@ -1573,12 +1405,10 @@ textarea:focus {
   transform: none;
 }
 
-/* Stagger */
 .reveal-enabled [data-reveal-stagger]>*[data-reveal] {
   transition-delay: calc(var(--reveal-index, 0) * var(--reveal-stagger, 90ms));
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 
   .reveal-enabled [data-reveal],
@@ -1589,19 +1419,11 @@ textarea:focus {
   }
 }
 
-/* Keep content visible while booting */
 .reveal-booting [data-reveal] {
   opacity: 1 !important;
   transform: none !important;
 }
 
-/* Once main script runs, it will add .reveal-enabled and you can remove the booting class if you like */
-
-/* =========================================================
-   25. About Page Mission Timeline
-   ========================================================= */
-
-/* ----- About: Mission ladder ----- */
 .about-mission {
   padding: clamp(1.4rem, 3vw, 3rem) clamp(1rem, 5vw, 5rem);
   color: var(--color-accent-1);
@@ -1623,7 +1445,7 @@ textarea:focus {
   font-size: clamp(1.8rem, 4.2vw, 2.6rem);
   line-height: 1.2;
   margin: 0 0 .75rem;
-  color: var(--ink);
+  color: var(--color-accent-3);
   font-weight: 100;
 }
 
@@ -1640,14 +1462,13 @@ textarea:focus {
   margin: 1.25rem 0 2rem;
 }
 
-/* Single center divider; no column gap */
 .timeline-grid {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: clamp(4rem, 2.5vw, 1.6rem);
   column-gap: 50px;
-  /* important */
+
   margin-bottom: clamp(2.5rem, 6vw, 4rem);
 }
 
@@ -1693,15 +1514,13 @@ textarea:focus {
   transform: translateX(-0.5px);
 }
 
-/* Make each cell span full width so flex alignment works */
 .t-item {
   display: flex;
   align-items: center;
   width: 100%;
-  /* 👈 critical */
+
 }
 
-/* Hug the center with tiny inner margins */
 .t-item:nth-child(odd) {
   justify-content: flex-end;
   margin-right: clamp(4px, .6vw, 8px);
@@ -1712,7 +1531,6 @@ textarea:focus {
   margin-left: clamp(4px, .6vw, 8px);
 }
 
-/* Text blocks */
 .t-item.text {
   display: flex;
   flex-direction: column;
@@ -1726,7 +1544,6 @@ textarea:focus {
   justify-content: center;
 }
 
-/* Force heading + paragraph to share alignment */
 .text-right {
   text-align: right;
   align-items: flex-end;
@@ -1768,7 +1585,6 @@ textarea:focus {
   font-weight: 100;
 }
 
-/* Images */
 .t-item.image img {
   width: 72%;
   max-width: 340px;
@@ -1778,7 +1594,6 @@ textarea:focus {
   display: block;
 }
 
-/* Goal */
 .mission-goal {
   text-align: center;
   max-width: 70ch;
@@ -1795,7 +1610,6 @@ textarea:focus {
   margin: 0 0 1rem;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .timeline-grid {
     grid-template-columns: 1fr;
@@ -1829,12 +1643,6 @@ textarea:focus {
   }
 }
 
-
-/* =========================================================
-   26. Site-Wide Refinements & Overrides
-   ========================================================= */
-
-/* Global spacing scale and utilities */
 :root {
   --space-1: .25rem;
   --space-2: .5rem;
@@ -1852,30 +1660,9 @@ textarea:focus {
   margin-inline: auto;
 }
 
-/* .site-header .nav a {
-    text-decoration: none;
-  font-size: 1.2rem;
-    color: #adcd77;
-
-} */
-
 .site-header.scrolled .nav a {
 }
 
-/* .site-header .nav a:hover {
-  opacity: 1;
-  transform: scale(1.08);
-  filter: brightness(1.2);
-  text-decoration: none;
-      color: #ffffff;
-} */
-
-
-/* =========================================================
-   27. Hero & Page Hero Refinements
-   ========================================================= */
-
-/* Hero improvements */
 .hero-bg {
   position: relative;
   background: url("images/hero-main.webp") center/cover no-repeat;
@@ -1954,7 +1741,7 @@ textarea:focus {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
-  /* adjust opacity (0.3–0.6 works well) */
+
   z-index: 0;
 }
 
@@ -1977,15 +1764,9 @@ textarea:focus {
 .page-hero.small .container {
   position: relative;
   z-index: 1;
-  /* keep your text/content above the dark overlay */
+
 }
 
-
-/* =========================================================
-   28. Contact Page Refinements
-   ========================================================= */
-
-/* Clean contact form */
 .contact-form {
   background: #ffffff00;
   border: 1px solid rgba(0, 0, 0, .06);
@@ -2018,27 +1799,21 @@ textarea:focus {
 
 .contact-card a {
   color: inherit;
-  /* use surrounding text color */
+
   text-decoration: none;
-  /* remove underline */
+
   font-weight: 500;
-  /* optional: makes it feel intentional */
+
   transition: color 0.3s ease;
 }
 
 .contact-card a:hover {
   color: var(--color-accent-7);
-  /* brand green hover */
+
   text-decoration: underline;
-  /* subtle cue that it’s clickable */
+
 }
 
-
-/* =========================================================
-   29. Products Page Layouts
-   ========================================================= */
-
-/* Products page layouts */
 .brand-grid {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
@@ -2146,12 +1921,6 @@ textarea:focus {
   }
 }
 
-
-/* =========================================================
-   30. Home Features Quad
-   ========================================================= */
-
-/* ===== Features Quad (dark, circular images) ===== */
 .features-quad {
   position: relative;
   padding: clamp(2.5rem, 6vw, 4.5rem) 0;
@@ -2227,11 +1996,6 @@ textarea:focus {
   opacity: .95;
 }
 
-/* .feature-card:hover .feature-media img{
-  transform: scale(1.03);
-  filter: saturate(1.12) contrast(1.08);
-} */
-
 @media (max-width: 1100px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2248,19 +2012,13 @@ textarea:focus {
   }
 }
 
-
-/* =========================================================
-   31. Contact Buttons, Phone/Email Links & Social Links
-   ========================================================= */
-
-/* Contact Page Button */
 .contact-btn {
   background-color: transparent;
-  /* transparent background */
+
   border: 2px solid var(--color-accent-7);
-  /* your brand green */
+
   color: #baf487;
-  /* green text */
+
   padding: 0.75rem 1.5rem;
   border-radius: 2rem;
   font-weight: 600;
@@ -2269,61 +2027,52 @@ textarea:focus {
 
 .contact-btn:hover {
   background-color: var(--color-accent-7);
-  /* green background on hover */
+
   color: var(--color-deep);
-  /* white text on hover */
+
 }
 
 a[href^="tel"],
 a[href^="mailto"] {
   color: inherit;
-  /* match surrounding text color */
+
   text-decoration: none;
-  /* remove underline */
+
 }
 
 a[href^="tel"]:hover,
 a[href^="mailto"]:hover {
   color: #7BA357;
-  /* optional: brand green on hover */
+
   text-decoration: underline;
-  /* optional: subtle hover effect */
+
 }
 
-/* Remove bullets and reset spacing for the list */
 .social-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  /* optional: horizontal layout */
+
   gap: 1rem;
-  /* spacing between icons/links */
+
 }
 
-/* Remove default link styling */
 .social-links a {
   color: inherit;
-  /* match surrounding text color */
+
   text-decoration: none;
-  /* remove underline */
+
   font-size: 1.2rem;
-  /* adjust if using text instead of icons */
+
   transition: color 0.3s ease;
 }
 
-/* Hover effect (optional) */
 .social-links a:hover {
   color: #7BA357;
-  /* your brand green */
+
 }
 
-
-/* =========================================================
-   32. Mobile Navigation
-   ========================================================= */
-
-/* Hide hamburger on large screens */
 .nav-toggle {
   display: none;
   font-size: 1.6rem;
@@ -2333,7 +2082,6 @@ a[href^="mailto"]:hover {
   cursor: pointer;
 }
 
-/* Mobile nav */
 @media (max-width: 768px) {
   .nav {
     display: none;
@@ -2361,26 +2109,17 @@ a[href^="mailto"]:hover {
   }
 }
 
-
-/* =========================================================
-   33. Timeline Mobile Overrides
-   ========================================================= */
-
-/* Timeline: centered mobile layout */
 @media (max-width: 900px) {
 
-  /* one column is already set; make sure the divider line is hidden */
   .timeline-grid::before {
     display: none;
   }
 
-  /* center each item within the grid cell */
   .t-item {
     justify-content: center;
     text-align: center;
   }
 
-  /* ensure text blocks are centered */
   .t-item.text,
   .text-right,
   .text-left {
@@ -2388,7 +2127,6 @@ a[href^="mailto"]:hover {
     text-align: center;
   }
 
-  /* make their headings/paragraphs center as well (overrides earlier rules) */
   .text-right h4,
   .text-right p,
   .text-left h4,
@@ -2396,20 +2134,14 @@ a[href^="mailto"]:hover {
     text-align: center;
   }
 
-  /* center the images and keep them neatly sized */
   .t-item.image img {
     display: block;
     margin: 0 auto;
     width: 85%;
     max-width: 480px;
-    /* adjust as you like */
+
   }
 }
-
-
-/* =========================================================
-   34. Collection Header & Category Card Overrides
-   ========================================================= */
 
 .collection-section {
   padding: clamp(1.4rem, 3vw, 3rem) clamp(1rem, 5vw, 5rem);
@@ -2487,7 +2219,6 @@ a[href^="mailto"]:hover {
   transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 
-
 .category-card img {
   display: block;
   width: 100%;
@@ -2550,21 +2281,18 @@ a[href^="mailto"]:hover {
   line-height: 1.65;
 }
 
-/* Large tablets */
 @media (max-width: 1200px) {
   .category-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Tablets */
 @media (max-width: 850px) {
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile */
 @media (max-width: 575px) {
   .collection-section {
     padding: 4rem 1rem;
@@ -2587,12 +2315,6 @@ a[href^="mailto"]:hover {
   }
 }
 
-
-/* =========================================================
-   35. Compact Mobile Contact Page
-   ========================================================= */
-
-/* Compact contact page on mobile only */
 @media (max-width: 768px) {
 
   .page-hero.small {
@@ -2650,3 +2372,6 @@ a[href^="mailto"]:hover {
     margin-bottom: 1rem;
   }
 }
+
+/* Global Flourish text color consistency */
+body,h1,h2,h3,h4,h5,h6,p,li,a,span,.eyebrow{color:var(--color-accent-3);}
