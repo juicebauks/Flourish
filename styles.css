@@ -84,7 +84,7 @@ body {
   margin: 0;
   font-family: var(--fl-sans);
   color: var(--color-ink);
-  background: #f7f3ea;
+  background-color: rgb(57, 67, 40);
   line-height: 1.6;
 }
 
