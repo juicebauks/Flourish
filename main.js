@@ -1,68 +1,241 @@
 /**
  * Flourish of Tumalo — shared site behavior
- * Used on every page: footer year, sticky header on scroll,
- * mobile nav toggle, and scroll-reveal animations.
+ * Handles the footer year, sticky header, mobile navigation,
+ * and scroll-reveal animations.
  */
-document.addEventListener("DOMContentLoaded", () => {
-  /* =====================================================
-     COPYRIGHT YEAR
-     ===================================================== */
-  const year = document.getElementById("year");
-  if (year) year.textContent = new Date().getFullYear();
 
-  /* =====================================================
-     HEADER AND MOBILE NAVIGATION
-     ===================================================== */
-  const header = document.querySelector(".site-header");
-  const navToggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".nav");
+(() => {
+  "use strict";
 
-  const closeNavigation = () => {
-    if (!nav || !navToggle) return;
-    nav.classList.remove("active");
-    navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", "Open navigation menu");
+  const SELECTORS = {
+    header: ".site-header",
+    nav: ".nav",
+    navToggle: ".nav-toggle",
+    reveal: "[data-reveal]",
+    revealGroup: "[data-reveal-stagger]",
+    year: "#year",
   };
 
-  if (header) {
-    const updateHeader = () => header.classList.toggle("scrolled", window.scrollY > 50);
+  const CLASSES = {
+    navOpen: "active",
+    revealEnabled: "reveal-enabled",
+    revealed: "is-visible",
+    scrolled: "scrolled",
+  };
+
+  const root = document.documentElement;
+  const reduceMotionQuery = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  /*
+   * Apply the initial hidden reveal styles as soon as this file executes.
+   * This must happen before DOMContentLoaded so above-the-fold content
+   * has a real opacity: 0 starting state.
+   */
+  if ("IntersectionObserver" in window && !reduceMotionQuery.matches) {
+    root.classList.add(CLASSES.revealEnabled);
+  }
+
+  function initializeCopyrightYear() {
+    const year = document.querySelector(SELECTORS.year);
+
+    if (year) {
+      year.textContent = String(new Date().getFullYear());
+    }
+  }
+
+  function initializeHeader() {
+    const header = document.querySelector(SELECTORS.header);
+
+    if (!header) return;
+
+    let frameRequested = false;
+
+    const updateHeader = () => {
+      header.classList.toggle(CLASSES.scrolled, window.scrollY > 50);
+      frameRequested = false;
+    };
+
+    const handleScroll = () => {
+      if (frameRequested) return;
+
+      frameRequested = true;
+      window.requestAnimationFrame(updateHeader);
+    };
+
     updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
   }
 
-  if (navToggle && nav) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("active");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      navToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+  function initializeNavigation() {
+    const nav = document.querySelector(SELECTORS.nav);
+    const toggle = document.querySelector(SELECTORS.navToggle);
+
+    if (!nav || !toggle) return;
+
+    const isNavigationOpen = () =>
+      nav.classList.contains(CLASSES.navOpen);
+
+    const setNavigationState = isOpen => {
+      nav.classList.toggle(CLASSES.navOpen, isOpen);
+
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
+    };
+
+    const closeNavigation = ({ restoreFocus = false } = {}) => {
+      if (!isNavigationOpen()) return;
+
+      setNavigationState(false);
+
+      if (restoreFocus) {
+        toggle.focus();
+      }
+    };
+
+    toggle.addEventListener("click", event => {
+      event.stopPropagation();
+      setNavigationState(!isNavigationOpen());
     });
 
-    nav.querySelectorAll("a").forEach(link => link.addEventListener("click", closeNavigation));
+    nav.addEventListener("click", event => {
+      const target = event.target;
+
+      if (target instanceof Element && target.closest("a")) {
+        closeNavigation();
+      }
+    });
+
+    document.addEventListener("click", event => {
+      const target = event.target;
+
+      if (!(target instanceof Node)) return;
+
+      const clickedInsideNav = nav.contains(target);
+      const clickedToggle = toggle.contains(target);
+
+      if (!clickedInsideNav && !clickedToggle) {
+        closeNavigation();
+      }
+    });
+
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape") closeNavigation();
+      if (event.key === "Escape") {
+        closeNavigation({ restoreFocus: true });
+      }
     });
   }
 
-  /* =====================================================
-     SCROLL REVEAL ANIMATIONS
-     ===================================================== */
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
+  function assignRevealStaggerIndexes() {
+    const groups = document.querySelectorAll(
+      SELECTORS.revealGroup
+    );
+
+    groups.forEach(group => {
+      const children = group.querySelectorAll(
+        `:scope > ${SELECTORS.reveal}`
+      );
+
+      children.forEach((element, index) => {
+        element.style.setProperty(
+          "--reveal-index",
+          String(index)
+        );
+      });
+    });
+  }
+
+  function revealEverythingImmediately(elements) {
+    root.classList.remove(CLASSES.revealEnabled);
+
+    elements.forEach(element => {
+      element.classList.add(CLASSES.revealed);
+    });
+  }
+
+  function initializeRevealAnimations() {
+    const revealElements = Array.from(
+      document.querySelectorAll(SELECTORS.reveal)
+    );
+
+    if (revealElements.length === 0) {
+      root.classList.remove(CLASSES.revealEnabled);
+      return;
+    }
+
+    const supportsObserver =
+      "IntersectionObserver" in window;
+
+    if (!supportsObserver || reduceMotionQuery.matches) {
+      revealEverythingImmediately(revealElements);
+      return;
+    }
+
+    assignRevealStaggerIndexes();
+
+    const revealElement = element => {
+      element.classList.add(CLASSES.revealed);
+    };
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          revealElement(entry.target);
           observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.08,
+      }
+    );
 
-    document.querySelectorAll("[data-reveal-stagger]").forEach(parent => {
-      parent.querySelectorAll(":scope > [data-reveal]").forEach((element, index) => {
-        element.style.setProperty("--reveal-index", index);
+    /*
+     * Wait for the hidden CSS state to be painted before observing.
+     * Elements already visible on page load will now transition cleanly.
+     */
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        revealElements.forEach(element => {
+          observer.observe(element);
+        });
       });
     });
 
-    document.querySelectorAll("[data-reveal]").forEach(element => observer.observe(element));
-    document.documentElement.classList.add("reveal-enabled");
+    reduceMotionQuery.addEventListener("change", event => {
+      if (!event.matches) return;
+
+      observer.disconnect();
+      revealEverythingImmediately(revealElements);
+    });
   }
-});
+
+  function initializeSite() {
+    initializeCopyrightYear();
+    initializeHeader();
+    initializeNavigation();
+    initializeRevealAnimations();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeSite,
+      { once: true }
+    );
+  } else {
+    initializeSite();
+  }
+})();

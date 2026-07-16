@@ -336,7 +336,7 @@ letter-spacing: 0.08em;
   font-size: clamp(1.05rem, 1.6vw, 1.25rem);
   margin: 0 0 .2rem 0;
   color: var(--color-tan);
-  letter-spacing: -0.8px;
+  letter-spacing: .2px;
 }
 
 .offer-step p {
@@ -681,26 +681,47 @@ textarea:focus {
 }
 
 .reveal-enabled [data-reveal="left"] {
-  transform: translate3d(28px, 0, 0) scale(0.995);
+  transform: translate3d(var(--reveal-distance, 28px), 0, 0) scale(0.995);
 }
 
 .reveal-enabled [data-reveal="right"] {
-  transform: translate3d(-28px, 0, 0) scale(0.995);
+  transform: translate3d(calc(var(--reveal-distance, 28px) * -1), 0, 0) scale(0.995);
+}
+.reveal-enabled .cta-reveal[data-reveal="left"] {
+  transform: translate3d(50px, 0, 0) scale(0.995);
+
+  transition:
+    opacity 1400ms var(--reveal-ease, cubic-bezier(.22, .61, .36, 1)),
+    transform 1400ms var(--reveal-ease, cubic-bezier(.22, .61, .36, 1));
 }
 
+.reveal-enabled .cta-reveal[data-reveal="left"].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.reveal-enabled .cta-row[data-reveal-stagger] > .cta-reveal {
+  transition-delay: calc(
+    var(--reveal-delay, 0ms) +
+    (var(--reveal-index, 0) * var(--reveal-stagger, 90ms))
+  );
+}
 .reveal-enabled [data-reveal="fade"] {
   opacity: 0;
-  transform: scale(0.985);
-  transition:
-    opacity 4600ms cubic-bezier(.22, .61, .36, 1),
-    transform 4600ms cubic-bezier(.22, .61, .36, 1);
+  transform: none;
+  filter: none;
+
+ transition:
+  opacity var(--reveal-duration, 2000ms)
+  cubic-bezier(0.4, 0, 0.2, 1);
+
+  will-change: opacity;
 }
 
 .reveal-enabled [data-reveal="fade"].is-visible {
   opacity: 1;
-  transform: scale(1);
+  transform: none;
 }
-
 .reveal-enabled [data-reveal-stagger]>*[data-reveal] {
   transition-delay: calc(var(--reveal-index, 0) * var(--reveal-stagger, 90ms));
 }
@@ -911,7 +932,38 @@ textarea:focus {
   width: var(--container-w);
   margin-inline: auto;
 }
+.about-container {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+padding:
+  clamp(2rem, 4vw, 4rem)
+  clamp(1.25rem, 5vw, 5rem)
+  clamp(4rem, 6vw, 6rem);  box-sizing: border-box;
+  background-color: var(--classes-dark-green-2);
+}
 
+.about-mission-divider {
+  width: 100vw;
+  height: clamp(70px, 8vw, 120px);
+  margin-right: calc(50% - 50vw);
+  margin-bottom: -1px;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.about-mission-divider svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.about-mission-divider path {
+  fill: var(--classes-dark-green-2);
+}
 .hero-bg {
   position: relative;
   min-height: 80vh;
@@ -1066,6 +1118,28 @@ textarea:focus {
     color 0.15s ease;
 }
 
+/* Keep CTA hover colors while restoring the staggered fade transition.
+   This must stay after .btn.btn-outline. */
+.reveal-enabled .cta-reveal[data-reveal="fade"] {
+  transform: none;
+  transition-property: opacity, background-color, border-color, color;
+  transition-duration:
+    var(--reveal-duration, 1200ms),
+    150ms,
+    150ms,
+    150ms;
+  transition-timing-function:
+    cubic-bezier(0.4, 0, 0.2, 1),
+    ease,
+    ease,
+    ease;
+}
+
+.reveal-enabled .cta-reveal[data-reveal="fade"].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 .btn.btn-outline:hover {
   background-color: var(--color-medium-green-4);
   border-color: var(--color-medium-green-4);
@@ -1133,7 +1207,7 @@ textarea:focus {
 }
 
 .feature-media {
-  width: min(220px, 55%);
+  width: min(160px, 55%);
   aspect-ratio: 1 / 1.3;
   margin: 0 auto clamp(1rem, 2vw, 1.25rem);
   border-radius: 50%;
@@ -1156,18 +1230,17 @@ textarea:focus {
 }
 
 .feature-heading {
-
+letter-spacing: 2px;
   margin: 0 0 .35rem;
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(1.05rem, 1.3vw, 1.2rem);
-  letter-spacing: -0.8px;
   color: var(--color-medium-green-4);
   text-transform: uppercase;
 }
 
 .feature-text {
   margin: 0 auto;
-  max-width: 36ch;
+  max-width: 25ch;
   color: var(--color-medium-green-4);
   font-size: .98rem;
   line-height: 1.6;
@@ -1319,7 +1392,7 @@ a[href^="mailto"]:hover {
   text-transform: uppercase;
 }
 .about-eyebrow {
-  margin: 3rem 0 0.5rem;
+  margin: 0 0 0.5rem;
   padding-bottom: 2rem;
   color: var(--color-medium-green-1);
   font-size: 0.75rem;
@@ -2132,6 +2205,29 @@ typography and layout
     transform 0.25s ease;
 }
 
+/* Preserve the scroll-reveal transition on product-section buttons.
+   This must remain after the base button rule above. */
+.reveal-enabled .products-redesign .product-section-button[data-reveal] {
+  transition-property:
+    opacity,
+    transform,
+    background-color,
+    border-color,
+    color;
+  transition-duration:
+    var(--reveal-duration, 1200ms),
+    var(--reveal-duration, 1200ms),
+    250ms,
+    250ms,
+    250ms;
+  transition-timing-function:
+    cubic-bezier(0.22, 0.61, 0.36, 1),
+    cubic-bezier(0.22, 0.61, 0.36, 1),
+    ease,
+    ease,
+    ease;
+}
+
 .products-redesign .product-section-button:hover {
   border-color: var(--section-button-hover-background);
   background: var(--section-button-hover-background);
@@ -2210,7 +2306,7 @@ typography and layout
 .products-redesign .product-hero p {
   max-width: 58ch;
   margin: 1.5rem auto 0;
-  color: var(--color-medium-green-);
+  color: var(--color-medium-green-4);
 }
 
 @media (max-width: 700px) {
