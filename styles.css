@@ -704,11 +704,7 @@ textarea:focus {
   transform: translate3d(0, 0, 0) scale(1);
 }
 
-.reveal-enabled .cta-row[data-reveal-stagger] > .cta-reveal {
-  transition-delay: calc(
-    var(--reveal-delay, 0ms) +
-    (var(--reveal-index, 0) * var(--reveal-stagger, 90ms))
-  );
+
 }
 .reveal-enabled [data-reveal="fade"] {
   opacity: 0;
@@ -1122,26 +1118,52 @@ padding:
     color 0.15s ease;
 }
 
-/* Keep CTA hover colors while restoring the staggered fade transition.
-   This must stay after .btn.btn-outline. */
 .reveal-enabled .cta-reveal[data-reveal="fade"] {
   transform: none;
-  transition-property: opacity, background-color, border-color, color;
+
+  transition-property:
+    opacity,
+    background-color,
+    border-color,
+    color;
+
   transition-duration:
-    var(--reveal-duration, 1200ms),
+    var(--reveal-duration, 700ms),
     150ms,
     150ms,
     150ms;
+
   transition-timing-function:
     cubic-bezier(0.4, 0, 0.2, 1),
     ease,
     ease,
     ease;
+
+  transition-delay:
+    var(--cta-reveal-delay, 0ms),
+    0ms,
+    0ms,
+    0ms;
 }
 
 .reveal-enabled .cta-reveal[data-reveal="fade"].is-visible {
   opacity: 1;
   transform: none;
+}
+
+.reveal-enabled
+.cta-row[data-reveal-stagger]
+> .cta-reveal {
+  --cta-reveal-delay: calc(
+    var(--reveal-delay, 0ms) +
+    (var(--reveal-index, 0) * var(--reveal-stagger, 90ms))
+  );
+}
+
+.reveal-enabled
+.cta-row[data-reveal-stagger]
+> .cta-reveal.is-visible {
+  --cta-reveal-delay: 0ms;
 }
 
 .btn.btn-outline:hover {
