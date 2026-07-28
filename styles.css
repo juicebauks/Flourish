@@ -539,6 +539,10 @@ p {
 .content-text {
   max-width: 800px;
   margin: 0 auto;
+  font-family: var(--product-body-font);
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 @media (max-width: 768px) {
@@ -2167,7 +2171,9 @@ typography and layout
 .products-redesign .product-tile {
   min-width: 0;
 }
-
+.flowers-image-card {
+  min-width: 0;
+}
 .products-redesign .product-image-card img,
 .products-redesign .product-more-card img,
 .products-redesign .product-tile img {
@@ -2176,7 +2182,12 @@ typography and layout
   max-width: 100%;
   object-fit: cover;
 }
-
+.flowers-image-card img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
 /* ---------------------------------------------------------
    Shared section button
    --------------------------------------------------------- */
@@ -2455,6 +2466,13 @@ typography and layout
 .products-redesign .product-section--flowers .product-image-card img {
   aspect-ratio: 1 / 1.08;
 }
+.flowers-image-card {
+  overflow: hidden;
+}
+
+.flowers-image-card img {
+  aspect-ratio: 4 / 6;
+}
 /* ---------------------------------------------------------
    Art
    Edit only these variables to alter this entire section.
@@ -2579,6 +2597,9 @@ typography and layout
 
 .products-redesign .product-care-grid__details .product-image-card img {
   aspect-ratio: 1 / 1;
+}
+.flowers-image-card img {
+  aspect-ratio: 4 / 6;
 }
 
 /* ---------------------------------------------------------
@@ -3125,5 +3146,10 @@ body.classes-page {
 
     padding-top: 3rem;
     padding-bottom: 0;
+  }
+}
+@media (max-width: 768px) {
+  .content-text {
+    padding-inline: clamp(1rem, 5vw, 1.5rem);
   }
 }
