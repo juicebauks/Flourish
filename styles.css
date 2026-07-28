@@ -970,7 +970,7 @@ padding:
 }
 .hero-bg {
   position: relative;
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   align-items: flex-end;
   padding-inline: 1rem;
