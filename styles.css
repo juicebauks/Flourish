@@ -1772,7 +1772,7 @@ body.flowers-page {
   grid-template-columns: 1.45fr 1fr;
   grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: clamp(0.8rem, 1.5vw, 1.5rem);
-  min-height: clamp(520px, 58vw, 780px);
+  height: clamp(380px, 45vw, 600px);
 }
 
 .flower-gallery-main {
@@ -1800,7 +1800,7 @@ body.flowers-page {
 }
 
 .flower-panel-header {
-  margin-bottom: clamp(3rem, 6vw, 5.5rem);
+  margin-bottom: clamp(1rem, 3vw, 3rem);
 }
 
 .flower-panel-header h2 {
@@ -1825,7 +1825,7 @@ body.flowers-page {
 
 .flower-product-list {
   display: grid;
-  gap: clamp(2.7rem, 5vw, 5rem);
+  gap: clamp(1.3rem, 2vw, 2.5rem);
 }
 
 .flower-product-row {
