@@ -105,27 +105,15 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a aria-label="Flourish of Tumalo home" class="logo" href="index.html">
-        <img alt="Flourish of Tumalo plant and flower shop" decoding="async" src="images/logo.png" />
-      </a>
-      <button aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu"
-        class="nav-toggle" type="button">☰</button>
-      <nav aria-label="Primary navigation" class="nav" id="primary-navigation">
-        <a aria-current="page" href="index.html">Home</a>
-        <a href="flowers.html">Custom Flowers</a>
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+
+  <!-- SHARED HEADER -->
+  <div id="site-header"></div>
+
 
   <main>
     <section class="hero hero-bg">
       <div class="container hero-overlay">
-        <h1 data-reveal="up" style="--reveal-duration: 1800ms;">Serving<br/>Central Oregon's<br/>Plant Lovers
+        <h1 data-reveal="up" style="--reveal-duration: 1800ms;">Serving<br />Central Oregon's<br />Plant Lovers
         </h1>
         <p data-reveal="up" style="--delay: 200ms;--reveal-duration: 1800ms;">
           Rooted in family and community, Flourish offers healthy houseplants, tropical plants, fresh flowers, custom
@@ -265,33 +253,22 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h4>Flourish</h4>
-        <p style="line-height: 190%;">
-          64702 Cook Ave<br />
-          Bend, OR 97703<br />
-          <a href="mailto:contact@flourishoftumalo.com">contact@flourishoftumalo.com</a><br />
-          <a href="tel:+15417970124">(541) 797-0124</a>
-        </p>
-      </div>
-      <div>
-        <h4>Hours</h4>
-        <p>Tuesday – Saturday<br />10:00 AM – 5:00 PM</p>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <ul class="social">
-          <li><a href="https://www.instagram.com/flourishoftumalo/" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="https://www.facebook.com/FlourishOfTumalo/" rel="noopener noreferrer">Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="copyright">© <span id="year"></span> Flourish • All rights reserved.</div>
-  </footer>
 
+<!-- SHARED FOOTER -->
+<div id="site-footer"></div>
+
+
+  <!-- Shared Components -->
+  <script src="components/header.js"></script>
+  <script src="components/footer.js"></script>
+
+  <!-- Main Site JavaScript -->
   <script src="main.js"></script>
+</body>
+
+</html>
+
+
 </body>
 
 </html>

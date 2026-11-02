@@ -86,32 +86,10 @@
 </head>
 
 <body class="classes-page">
-  <header class="classes-header">
-    <div class="classes-container classes-header__inner">
-      <a class="classes-logo" href="index.html" aria-label="Flourish of Tumalo home">
-        <img src="images/logo.png" alt="Flourish of Tumalo" decoding="async" />
-      </a>
+  
+<!-- SHARED HEADER -->
+<div id="site-header"></div>
 
-      <button
-        class="classes-nav-toggle"
-        type="button"
-        aria-controls="classes-primary-navigation"
-        aria-expanded="false"
-        aria-label="Open navigation menu"
-      >
-        ☰
-      </button>
-
-      <nav class="classes-nav" id="classes-primary-navigation" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="flowers.html">Custom Flowers</a>
-        <a href="products.html">Products</a>
-        <a href="classes.html" aria-current="page">Classes</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
 
   <main class="classes-main">
     <section class="classes-hero" aria-labelledby="classes-page-title">
@@ -132,36 +110,13 @@
     </section>
   </main>
 
-  <footer class="classes-footer">
-    <div class="classes-container classes-footer__grid">
-      <div>
-        <h2 class="classes-footer__heading">Flourish</h2>
-        <address class="classes-footer__address">
-          64702 Cook Ave<br />
-          Bend, OR 97703<br />
-          <a href="mailto:contact@flourishoftumalo.com">contact@flourishoftumalo.com</a><br />
-          <a href="tel:+15417970124">(541) 797-0124</a>
-        </address>
-      </div>
+<!-- SHARED FOOTER -->
+<div id="site-footer"></div>
 
-      <div>
-        <h2 class="classes-footer__heading">Hours</h2>
-        <p>Tuesday–Saturday<br />10:00 AM–5:00 PM</p>
-      </div>
+  
+<!-- SHARED FOOTER -->
+<div id="site-footer"></div>
 
-      <div>
-        <h2 class="classes-footer__heading">Follow</h2>
-        <ul class="classes-footer__social">
-          <li><a href="https://www.instagram.com/flourishoftumalo/" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="https://www.facebook.com/FlourishOfTumalo/" rel="noopener noreferrer">Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="classes-footer__copyright">
-      © <span id="year"></span> Flourish of Tumalo. All rights reserved.
-    </div>
-  </footer>
 
   <script src="main.js"></script>
   <script>
@@ -178,5 +133,20 @@
     const year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
   </script>
+  
+<!-- Shared Components -->
+<script src="components/components.js"></script>
+
+
+<!-- Shared Components -->
+<script src="components/header.js"></script>
+<script src="components/footer.js"></script>
+
+<!-- Main Site JavaScript -->
+<script src="main.js"></script>
+</body>
+</html>
+
+
 </body>
 </html>

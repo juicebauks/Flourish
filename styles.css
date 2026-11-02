@@ -3175,3 +3175,56 @@ body.classes-page {
     padding-inline: clamp(1rem, 5vw, 1.5rem);
   }
 }
+
+/* ========================================
+   CONTACT PAGE — FULL SCREEN LAYOUT
+======================================== */
+
+body:has(.contact-form) {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header stays at the top */
+body:has(.contact-form) #site-header {
+  flex-shrink: 0;
+}
+
+/* Main content fills remaining space */
+body:has(.contact-form) main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Center contact content vertically */
+body:has(.contact-form) .page-hero.small {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer stays at the bottom */
+body:has(.contact-form) #site-footer {
+  flex-shrink: 0;
+}
+
+/* Contact page only */
+body:has(.contact-form) .page-hero.small {
+  min-height: 0;
+  padding: 5rem 0 1.5rem;
+}
+
+/* Allow the contact section to shrink to available space */
+body:has(.contact-form) main {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* Prevent the content from being clipped */
+body:has(.contact-form) .page-hero.small {
+  min-height: min-content;
+}
