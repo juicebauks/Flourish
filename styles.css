@@ -1531,14 +1531,16 @@ a[href^="mailto"]:hover {
 tabs,
 buttons and layout
    ========================================================= */
-
+.flowers-collection-header {
+  padding-top: 5rem;
+}
 .flower-shop {
   /* Component colors */
-  --flower-panel-bg: var(--color-dark-green-1);
+  --flower-panel-bg: var(--color-dark-green-2);
   --flower-tab-bg: var(--color-medium-green-1);
-  --flower-tab-text: var(--color-dark-green-1);
-  --flower-tab-active-bg: var(--color-dark-green-1);
-  --flower-tab-active-text: var(--color-medium-green-2);
+  --flower-tab-text: var(--color-dark-green-2);
+  --flower-tab-active-bg: var(--color-medium-green-4);
+  --flower-tab-active-text: var(--color-dark-green-1);
   --flower-tab-hover-bg: var(--color-medium-green-2);
   --flower-tab-hover-text: var(--color-dark-green-1);
 
