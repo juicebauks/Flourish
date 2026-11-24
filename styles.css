@@ -3542,3 +3542,83 @@ p b {
   .flowers-page .flower-product-list { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
   .flowers-page .flower-product-row { padding: 1rem; }
 }
+
+/* =========================================
+   FLOWERS — COMPACT MOBILE ORDERING CARDS
+   Applies to both ordering tabs
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  .flowers-page .flower-tab-content {
+    padding: 1rem 0.85rem;
+  }
+
+  .flowers-page .flower-panel-grid {
+    gap: 1.25rem;
+  }
+
+  .flowers-page .flower-panel-header {
+    margin-bottom: 1rem;
+  }
+
+  .flowers-page .flower-panel-header h2 {
+    font-size: clamp(1.65rem, 7vw, 2.2rem);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+  }
+
+  .flowers-page .flower-panel-header p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .flowers-page .flower-product-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.625rem;
+  }
+
+  .flowers-page .flower-product-row {
+    padding: 0.75rem;
+    gap: 0.5rem;
+    border-radius: 12px;
+  }
+
+  .flowers-page .flower-product-name h3 {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .flowers-page .flower-product-name p {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin: 0.15rem 0 0;
+  }
+
+  .flowers-page .flower-product-action > p {
+    font-size: 0.85rem;
+    line-height: 1.35;
+    margin: 0.5rem 0 0;
+  }
+
+  .flowers-page .flower-checkout-button {
+    min-height: 44px;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+
+  .flowers-page .flower-button-group {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .flowers-page .flower-address {
+    font-size: 0.85rem;
+    line-height: 1.35;
+    margin: 0.5rem 0 0;
+    padding: 0;
+  }
+
+}
