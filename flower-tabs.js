@@ -1,93 +1,94 @@
+
 /**
- * Flourish of Tumalo — flower ordering tabs
- * Switches between "Custom Bouquets" and "Bouquet Subscription" panels
- * on flowers.html. Loaded in addition to main.js.
+ * Flourish of Tumalo — Flower & Arrangement Gallery Tabs
  */
+
 document.addEventListener("DOMContentLoaded", () => {
-  const tabs = Array.from(document.querySelectorAll("[data-flower-tab]"));
-  const panels = Array.from(document.querySelectorAll(".flower-panel"));
+  const tabGroups = document.querySelectorAll('[role="tablist"]');
 
-  let activePanel = document.querySelector(".flower-panel.is-active");
-  let isSwitchingTabs = false;
+  tabGroups.forEach((tabGroup) => {
+    const tabs = Array.from(
+      tabGroup.querySelectorAll('[role="tab"]')
+    );
 
-  const activateFlowerTab = (selectedTab, animate = true) => {
-    if (!selectedTab || isSwitchingTabs) return;
+    if (!tabs.length) return;
 
-    const selectedPanelId = selectedTab.dataset.flowerTab;
-    const selectedPanel = document.getElementById(selectedPanelId);
-    if (!selectedPanel) return;
+    const panels = tabs.map((tab) =>
+      document.getElementById(
+        tab.getAttribute("aria-controls")
+      )
+    ).filter(Boolean);
 
-    tabs.forEach((tab) => {
-      const isSelected = tab === selectedTab;
-      tab.classList.toggle("is-active", isSelected);
-      tab.setAttribute("aria-selected", String(isSelected));
-      tab.tabIndex = isSelected ? 0 : -1;
-    });
+    const activateTab = (selectedTab) => {
+      const selectedPanel = document.getElementById(
+        selectedTab.getAttribute("aria-controls")
+      );
 
-    if (selectedPanel === activePanel) return;
+      if (!selectedPanel) return;
 
-    if (!animate || !activePanel) {
+      tabs.forEach((tab) => {
+        const isSelected = tab === selectedTab;
+
+        tab.classList.toggle("is-active", isSelected);
+        tab.setAttribute(
+          "aria-selected",
+          String(isSelected)
+        );
+        tab.tabIndex = isSelected ? 0 : -1;
+      });
+
       panels.forEach((panel) => {
         const isSelected = panel === selectedPanel;
+
         panel.hidden = !isSelected;
         panel.classList.toggle("is-active", isSelected);
       });
-      activePanel = selectedPanel;
-      return;
-    }
+    };
 
-    isSwitchingTabs = true;
-    activePanel.classList.remove("is-active");
-
-    window.setTimeout(() => {
-      panels.forEach((panel) => {
-        panel.hidden = panel !== selectedPanel;
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        activateTab(tab);
       });
-      selectedPanel.hidden = false;
 
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          selectedPanel.classList.add("is-active");
-          activePanel = selectedPanel;
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex = index;
 
-          window.setTimeout(() => {
-            isSwitchingTabs = false;
-          }, 320);
-        });
+        switch (event.key) {
+          case "ArrowRight":
+            nextIndex = (index + 1) % tabs.length;
+            break;
+
+          case "ArrowLeft":
+            nextIndex =
+              (index - 1 + tabs.length) % tabs.length;
+            break;
+
+          case "Home":
+            nextIndex = 0;
+            break;
+
+          case "End":
+            nextIndex = tabs.length - 1;
+            break;
+
+          default:
+            return;
+        }
+
+        event.preventDefault();
+
+        tabs[nextIndex].focus();
+        activateTab(tabs[nextIndex]);
       });
-    }, 220);
-  };
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
-      activateFlowerTab(tab);
     });
 
-    tab.addEventListener("keydown", (event) => {
-      let nextIndex = index;
+    // Initialize each tab group independently.
+    const defaultTab =
+      tabs.find(
+        (tab) =>
+          tab.getAttribute("aria-selected") === "true"
+      ) || tabs[0];
 
-      if (event.key === "ArrowRight") {
-        nextIndex = (index + 1) % tabs.length;
-      } else if (event.key === "ArrowLeft") {
-        nextIndex = (index - 1 + tabs.length) % tabs.length;
-      } else if (event.key === "Home") {
-        nextIndex = 0;
-      } else if (event.key === "End") {
-        nextIndex = tabs.length - 1;
-      } else {
-        return;
-      }
-
-      event.preventDefault();
-      const nextTab = tabs[nextIndex];
-      nextTab.focus();
-      activateFlowerTab(nextTab);
-    });
+    activateTab(defaultTab);
   });
-
-  /* Automatically open Custom Bouquets without animation */
-  const defaultTab = document.getElementById("custom-bouquets-tab");
-  if (defaultTab) {
-    activateFlowerTab(defaultTab, false);
-  }
 });

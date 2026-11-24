@@ -42,7 +42,10 @@
   --space-12: 4.5rem;
 
   /* ---- Typography ---- */
-  --fl-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --fl-serif: "the-seasons", Georgia, serif;
+  --fl-paragraph-weight: 300;
+  --fl-heading-weight: 700;
+  --fl-sans: "dm-sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
   /* ---- Scroll-reveal animation defaults ---- */
   --reveal-distance: 28px;
@@ -95,8 +98,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Gloock", serif;
-  font-weight: 400;
+  font-family: var(--fl-serif);
+  font-weight: var(--fl-heading-weight);
   font-style: normal;
 }
 
@@ -169,9 +172,9 @@ body {
   max-width: 11ch;
   margin: 0 auto;
   color: var(--color-medium-green-4);
-  font-family: "Gloock", serif;
+  font-family: var(--fl-serif);
   font-size: clamp(2.2rem, 4vw, 4rem);
-  font-weight: 400;
+  font-weight: var(--fl-heading-weight);
   line-height: 0.98;
   letter-spacing: -0.8px;
 }
@@ -323,7 +326,7 @@ body {
   content: counter(step, decimal-leading-zero) ".";
   position: absolute;
   left: 14px;
-font-family: "Gloock", serif;
+font-family: var(--fl-serif);
 letter-spacing: 0.08em;
   top: 50%;
   transform: translateY(-50%);
@@ -409,6 +412,7 @@ h3 {
 
 p {
   margin: 0 0 1rem;
+  font-weight: 300;
 }
 
 .products-page {
@@ -747,7 +751,7 @@ textarea:focus {
   line-height: 1.2;
   margin: 0 0 .75rem;
   color: var(--color-medium-green-4);
-  font-weight: 100;
+  font-weight: var(--fl-heading-weight);
 }
 
 .mission-lead {
@@ -841,7 +845,7 @@ textarea:focus {
 }
 
 .text-right p {
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .text-left {
@@ -868,7 +872,7 @@ textarea:focus {
 
 .t-item p {
   margin: 0;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .t-item.image img {
@@ -1067,7 +1071,7 @@ padding:
 .page-hero.small h1 {
   color: var(--color-medium-green-4);
   font-size: clamp(2.6rem, 6vw, 5rem);
-  font-weight: 400;
+  font-weight: var(--fl-heading-weight);
 }
 
 .page-hero.small p {
@@ -1258,7 +1262,7 @@ padding:
 .feature-heading {
 letter-spacing: 2px;
   margin: 0 0 .35rem;
-  font-weight: 400;
+  font-weight: var(--fl-heading-weight);
   font-size: clamp(1.05rem, 1.3vw, 1.2rem);
   color: var(--color-medium-green-4);
   text-transform: uppercase;
@@ -1459,7 +1463,7 @@ a[href^="mailto"]:hover {
   line-height: 1.2;
   margin: 0 0 .75rem;
   color: var(--color-medium-green-4);
-  font-weight: 100;
+  font-weight: var(--fl-heading-weight);
 }
 
 @media (max-width: 575px) {
@@ -1606,9 +1610,9 @@ buttons and layout
 
 .flowers-collection-title {
   margin: 0 0 0.75rem;
-  font-family: "Gloock", serif;
+  font-family: var(--fl-serif);
   font-size: clamp(2.2rem, 4vw, 4rem);
-  font-weight: 400;
+  font-weight: var(--fl-heading-weight);
   font-style: normal;
   line-height: 1.2;
   color: var(--color-medium-green-4);
@@ -1652,14 +1656,7 @@ buttons and layout
 }
 
 body.flowers-page {
-  background:
-    radial-gradient(circle at center,
-      transparent 0%,
-      color-mix(in srgb, var(--color-dark-green) 83%, transparent),
-      color-mix(in srgb, var(--color-dark-green) 85%, transparent),
-      color-mix(in srgb, var(--color-dark-green) 90%, transparent),
-      var(--color-dark-green) 100%),
-    url("images/flowers/flower-page-background.jpg") center center / cover fixed no-repeat;
+  background: var(--color-dark-green-1);
 }
 
 /* Tabs */
@@ -1810,9 +1807,9 @@ body.flowers-page {
   margin: 0 0 1.15rem;
   color: var(--flower-heading);
   font-size: clamp(2rem, 3.3vw, 3.3rem);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.8px;
+  font-weight: var(--fl-heading-weight);
+  line-height: 1.25;
+  letter-spacing: 0.025em;
 }
 
 .flower-panel-header p {
@@ -1820,6 +1817,7 @@ body.flowers-page {
   margin: 0;
   color: var(--flower-body);
   font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  font-weight: 300;
   line-height: 1.5;
 }
 
@@ -1844,9 +1842,9 @@ body.flowers-page {
   margin: 0;
   color: var(--flower-heading);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: var(--fl-heading-weight);
   line-height: 1.25;
-  letter-spacing: 0;
+  letter-spacing: 0.035em;
 }
 
 .flower-product-name p {
@@ -2079,8 +2077,8 @@ typography and layout
   --product-gutter: clamp(1.25rem, 5vw, 5rem);
   --product-section-space: clamp(5rem, 9vw, 9rem);
 
-  --product-heading-font: "Gloock", serif;
-  --product-body-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --product-heading-font: var(--fl-serif);
+  --product-body-font: var(--fl-sans);
 
   background: var(--color-dark-green-2);
   color: var(--color-medium-green-4);
@@ -2125,7 +2123,7 @@ typography and layout
 .products-redesign .product-section h3,
 .products-redesign .product-hero h1 {
   font-family: var(--product-heading-font);
-  font-weight: 400;
+  font-weight: var(--fl-heading-weight);
   font-style: normal;
 }
 
@@ -2645,7 +2643,7 @@ typography and layout
   color: inherit;
   font-family: var(--product-heading-font);
   font-size: clamp(1rem, 1.5vw, 1.25rem);
-  font-weight: 400;
+  font-weight: var(--fl-heading-weight);
   background-color: var(--color-dark-green-3);
 }
 
@@ -2833,8 +2831,8 @@ typography and layout
   --classes-medium-green: #c9d872;
   --classes-light-green: #f7ffa6;
   --classes-tan: #e3dac1;
-  --classes-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --classes-serif: "Gloock", Georgia, serif;
+  --classes-sans: var(--fl-sans);
+  --classes-serif: var(--fl-serif);
   --classes-container-width: min(1600px, 92vw);
 }
 
@@ -3006,7 +3004,7 @@ body.classes-page {
   color: var(--classes-light-green);
   font-family: var(--classes-serif);
   font-size: clamp(2.7rem, 6vw, 5.7rem);
-  font-weight: 400;
+  font-weight: var(--fl-heading-weight);
   line-height: 0.98;
   letter-spacing: -0.8px;
 }
@@ -3060,7 +3058,7 @@ body.classes-page {
   color: var(--classes-medium-green);
   font-family: var(--classes-serif);
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: var(--fl-heading-weight);
 }
 
 .classes-footer p,
@@ -3240,24 +3238,81 @@ body:has(.contact-form) .page-hero.small {
    FLOWERS PAGE — ARRANGEMENT GALLERIES
    ========================================================= */
 .flowers-page .arrangement-galleries {
-  width: min(94%, var(--fl-maxw));
-  margin: 0 auto;
-  padding-bottom: clamp(4rem, 8vw, 8rem);
+  width: min(94%, 1800px);
+  margin: 0 auto clamp(5rem, 9vw, 9rem);
 }
 
-.flowers-page .arrangement-section + .arrangement-section {
-  margin-top: clamp(4rem, 8vw, 8rem);
+.flowers-page .arrangement-card {
+  padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 4vw, 4.5rem) clamp(2rem, 5vw, 5rem);
+  border-radius: 24px;
+  background: var(--color-dark-green-2);
+  color: var(--color-medium-green-2);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.28), 0 15px 40px rgba(0, 0, 0, 0.16);
 }
 
-.flowers-page .arrangement-header {
-  padding-top: 0;
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+.flowers-page .arrangement-title {
+  margin: 0;
+  text-align: center;
+  color: var(--color-medium-green-2);
+}
+
+.flowers-page .arrangement-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 5vw, 3.5rem);
+  margin: clamp(1.5rem, 3vw, 3rem) auto 0;
+}
+
+.flowers-page .arrangement-tab {
+  position: relative;
+  padding: .65rem 0;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: 600 clamp(1rem, 1.5vw, 1.2rem)/1.2 var(--fl-sans);
+  cursor: pointer;
+  transition: color .25s ease;
+}
+
+.flowers-page .arrangement-tab::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform .25s ease;
+}
+
+.flowers-page .arrangement-tab.is-active::after,
+.flowers-page .arrangement-tab:hover::after {
+  transform: scaleX(1);
+}
+
+.flowers-page .arrangement-tab:hover,
+.flowers-page .arrangement-tab:focus-visible {
+  color: var(--color-medium-green-4);
+}
+
+.flowers-page .arrangement-tab:focus-visible,
+.flowers-page .arrangement-panel:focus-visible {
+  outline: 2px solid var(--color-medium-green-4);
+  outline-offset: 4px;
+}
+
+.flowers-page .arrangement-panel[hidden] { display: none; }
+
+.flowers-page .arrangement-description {
+  text-align: center;
+  margin: clamp(1.5rem, 3vw, 2.5rem) auto clamp(2rem, 4vw, 3.5rem);
 }
 
 .flowers-page .arrangement-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.75rem, 2vw, 1.5rem);
+  gap: clamp(.75rem, 2vw, 1.5rem);
 }
 
 .flowers-page .arrangement-grid img {
@@ -3271,16 +3326,139 @@ body:has(.contact-form) .page-hero.small {
 }
 
 @media (max-width: 700px) {
-  .flowers-page .arrangement-galleries {
-    width: calc(100% - 2rem);
-  }
-  .flowers-page .arrangement-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .flowers-page .arrangement-card { border-radius: 16px; }
+  .flowers-page .arrangement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 420px) {
-  .flowers-page .arrangement-grid {
-    grid-template-columns: minmax(0, 1fr);
+  .flowers-page .arrangement-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flowers-page .arrangement-tab,
+  .flowers-page .arrangement-tab::after { transition: none; }
+}
+
+/* Flowers page — refined heading tracking */
+.flowers-page .flowers-collection-title {
+  letter-spacing: 0.025em;
+}
+
+/* Arrangement gallery — inverted palette and panel fade */
+.flowers-page .arrangement-card {
+  background: #b9d66b;
+  color: var(--color-dark-green-2);
+}
+
+.flowers-page .arrangement-title,
+.flowers-page .arrangement-description,
+.flowers-page .arrangement-tab,
+.flowers-page .arrangement-tab:hover,
+.flowers-page .arrangement-tab:focus-visible {
+  color: inherit;
+}
+.flowers-page .arrangement-tab:focus-visible,
+.flowers-page .arrangement-panel:focus-visible {
+  outline-color: var(--color-dark-green-2);
+}
+.flowers-page .arrangement-panel:not([hidden]) {
+  animation: arrangement-fade-in 450ms ease-out both;
+}
+@keyframes arrangement-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flowers-page .arrangement-panel:not([hidden]) {
+    animation: none;
   }
+}
+
+/* Flowers hero — matched to Products */
+.flowers-page .flowers-hero {
+  --hero-fade-color: var(--color-dark-green-1);
+  position: relative;
+  isolation: isolate;
+  min-height: 50vh;
+   z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding-block: clamp(10rem, 16vh, 13rem) clamp(4rem, 7vh, 6rem);
+  background: url("images/flowers/flower-page-background.jpg") center / cover no-repeat;
+}
+
+.flowers-page .flowers-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(16, 24, 10, 0.772);
+  pointer-events: none;
+}
+
+.flowers-page .flowers-hero::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  z-index: 1;
+  height: clamp(180px, 22vw, 320px);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 72%,
+    color-mix(in srgb, var(--hero-fade-color) 35%, transparent) 86%,
+    var(--hero-fade-color) 100%
+  );
+  pointer-events: none;
+}
+
+
+.flowers-page .flowers-hero .flowers-collection-header {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 0;
+}
+.flowers-page .flowers-hero .flowers-collection-subtitle {
+  font-weight: 300;
+}
+.flowers-page main { overflow: hidden; }
+@media (max-width: 700px) {
+  .flowers-page .flowers-hero {
+    min-height: 50vh;
+    justify-content: center;
+    padding-block: 7rem 4rem;
+  }
+}
+
+/* Consistent light body copy; preserve intentional emphasis and controls. */
+.flowers-page .arrangement-description,
+.content-text,
+.offer-blurb,
+.feature-text,
+.mission-lead,
+.classes-hero__notice {
+  font-weight: 300;
+}
+
+p strong,
+p b {
+  font-weight: 700;
+}
+
+/* Sitewide paragraph typography — preserve labels and intentional emphasis. */
+p:not(.eyebrow):not(.about-eyebrow):not(.flowers-collection-eyebrow):not(.classes-hero__eyebrow):not([role="tab"]) {
+  font-family: var(--fl-sans) !important;
+  font-weight: var(--fl-paragraph-weight) !important;
+}
+p strong,
+p b {
+  font-weight: 700;
 }

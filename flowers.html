@@ -32,11 +32,12 @@
   <link href="images/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
   <link href="images/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Gloock&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <!-- Adobe Fonts — The Seasons & DM Sans -->
+<link rel="stylesheet" href="https://use.typekit.net/vqm0jfl.css" />
 
+  <script>
+    document.documentElement.classList.add("reveal-enabled");
+  </script>
   <!-- CSS -->
   <link href="styles.css" rel="stylesheet" />
 </head>
@@ -48,8 +49,8 @@
 
   <main>
     <section>
-      <section class="collection-section" style="padding-top: 0rem;">
-        <div class="flowers-collection-header">
+      <section class="collection-section flowers-hero" aria-labelledby="flowers-page-title">
+        <div class="flowers-collection-header" data-reveal="fade">
           
 
           <div class="flowers-collection-divider" data-reveal="fade"
@@ -59,7 +60,7 @@
             <span></span>
           </div>
 
-          <h1 class="flowers-collection-title" data-reveal="right"
+          <h1 id="flowers-page-title" class="flowers-collection-title" data-reveal="right"
           style="--delay: 200ms; --reveal-duration: 1600ms; --reveal-distance: 50px;">Flowers for Your Space</h1>
 
           <p class="flowers-collection-subtitle" data-reveal="left"
@@ -267,13 +268,17 @@
     </section>
 
     <!-- Arrangement galleries -->
-    <div class="arrangement-galleries">
-      <section class="arrangement-section" aria-labelledby="small-arrangements-title">
-        <header class="flowers-collection-header arrangement-header" data-reveal="fade">
-          <h2 class="flowers-collection-title" id="small-arrangements-title">Small Arrangements</h2>
-          <p class="flowers-collection-subtitle">A little something beautiful. Our small arrangements are perfect for thoughtful gifts, bedside tables, and brightening everyday spaces.</p>
-        </header>
-        <div class="arrangement-grid">
+    <section class="arrangement-galleries" aria-labelledby="arrangement-gallery-title" data-reveal="fade" style="--reveal-duration: 1200ms;">
+      <div class="arrangement-card">
+        <h2 class="flowers-collection-title arrangement-title" id="arrangement-gallery-title">Flower Arrangement Variations</h2>
+        <div class="arrangement-tabs" role="tablist" aria-label="Arrangement sizes">
+          <button class="arrangement-tab is-active" type="button" role="tab" id="arrangement-small-tab" aria-controls="arrangement-small-panel" aria-selected="true" tabindex="0">Small</button>
+          <button class="arrangement-tab" type="button" role="tab" id="arrangement-medium-tab" aria-controls="arrangement-medium-panel" aria-selected="false" tabindex="-1">Medium</button>
+          <button class="arrangement-tab" type="button" role="tab" id="arrangement-large-tab" aria-controls="arrangement-large-panel" aria-selected="false" tabindex="-1">Large</button>
+        </div>
+        <div class="arrangement-panel" id="arrangement-small-panel" role="tabpanel" aria-labelledby="arrangement-small-tab" tabindex="0">
+          <p class="flowers-collection-subtitle arrangement-description">A little something beautiful. Our small arrangements are perfect for thoughtful gifts, bedside tables, and brightening everyday spaces.</p>
+          <div class="arrangement-grid">
           <img src="images/flowers/small/small-flourish-bouquet%20(1).webp" alt="Small floral arrangement by Flourish of Tumalo, example 1" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/small/small-flourish-bouquet%20(2).webp" alt="Small floral arrangement by Flourish of Tumalo, example 2" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/small/small-flourish-bouquet%20(3).webp" alt="Small floral arrangement by Flourish of Tumalo, example 3" loading="lazy" decoding="async" width="1000" height="1500" />
@@ -303,14 +308,10 @@
           <img src="images/flowers/small/small-flourish-bouquet%20(27).webp" alt="Small floral arrangement by Flourish of Tumalo, example 27" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/small/small-flourish-bouquet%20(28).webp" alt="Small floral arrangement by Flourish of Tumalo, example 28" loading="lazy" decoding="async" width="1000" height="1500" />
         </div>
-      </section>
-
-      <section class="arrangement-section" aria-labelledby="medium-arrangements-title">
-        <header class="flowers-collection-header arrangement-header" data-reveal="fade">
-          <h2 class="flowers-collection-title" id="medium-arrangements-title">Medium Arrangements</h2>
-          <p class="flowers-collection-subtitle">A lovely balance of fullness and detail, our medium arrangements bring seasonal color and natural beauty to any occasion.</p>
-        </header>
-        <div class="arrangement-grid">
+        </div>
+        <div class="arrangement-panel" id="arrangement-medium-panel" role="tabpanel" aria-labelledby="arrangement-medium-tab" tabindex="0" hidden>
+          <p class="flowers-collection-subtitle arrangement-description">A lovely balance of fullness and detail, our medium arrangements bring seasonal color and natural beauty to any occasion.</p>
+          <div class="arrangement-grid">
           <img src="images/flowers/medium/medium-flourish-bouquet%20(1).webp" alt="Medium floral arrangement by Flourish of Tumalo, example 1" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/medium/medium-flourish-bouquet%20(2).webp" alt="Medium floral arrangement by Flourish of Tumalo, example 2" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/medium/medium-flourish-bouquet%20(3).webp" alt="Medium floral arrangement by Flourish of Tumalo, example 3" loading="lazy" decoding="async" width="1000" height="1500" />
@@ -329,28 +330,35 @@
           <img src="images/flowers/medium/medium-flourish-bouquet%20(16).webp" alt="Medium floral arrangement by Flourish of Tumalo, example 16" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/medium/medium-flourish-bouquet%20(17).webp" alt="Medium floral arrangement by Flourish of Tumalo, example 17" loading="lazy" decoding="async" width="1000" height="1500" />
         </div>
-      </section>
-
-      <section class="arrangement-section" aria-labelledby="large-arrangements-title">
-        <header class="flowers-collection-header arrangement-header" data-reveal="fade">
-          <h2 class="flowers-collection-title" id="large-arrangements-title">Large Arrangements</h2>
-          <p class="flowers-collection-subtitle">Make a statement with our large arrangements, thoughtfully designed with abundant blooms, texture, and movement.</p>
-        </header>
-        <div class="arrangement-grid">
+        </div>
+        <div class="arrangement-panel" id="arrangement-large-panel" role="tabpanel" aria-labelledby="arrangement-large-tab" tabindex="0" hidden>
+          <p class="flowers-collection-subtitle arrangement-description">Make a statement with our large arrangements, thoughtfully designed with abundant blooms, texture, and movement.</p>
+          <div class="arrangement-grid">
           <img src="images/flowers/large/large-flourish-bouquet%20(1).webp" alt="Large floral arrangement by Flourish of Tumalo, example 1" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(2).webp" alt="Large floral arrangement by Flourish of Tumalo, example 2" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(3).webp" alt="Large floral arrangement by Flourish of Tumalo, example 3" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(4).webp" alt="Large floral arrangement by Flourish of Tumalo, example 4" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(5).webp" alt="Large floral arrangement by Flourish of Tumalo, example 5" loading="lazy" decoding="async" width="1000" height="1500" />
+          <img src="images/flowers/large/large-flourish-bouquet%20(5-2).webp" alt="Large floral arrangement by Flourish of Tumalo, example 5" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(6).webp" alt="Large floral arrangement by Flourish of Tumalo, example 6" loading="lazy" decoding="async" width="1000" height="1500" />
+          <img src="images/flowers/large/large-flourish-bouquet%20(6-2).webp" alt="Large floral arrangement by Flourish of Tumalo, example 6" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(7).webp" alt="Large floral arrangement by Flourish of Tumalo, example 7" loading="lazy" decoding="async" width="1000" height="1500" />
+          <img src="images/flowers/large/large-flourish-bouquet%20(7-2).webp" alt="Large floral arrangement by Flourish of Tumalo, example 7" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(8).webp" alt="Large floral arrangement by Flourish of Tumalo, example 8" loading="lazy" decoding="async" width="1000" height="1500" />
+          <img src="images/flowers/large/large-flourish-bouquet%20(8-2).webp" alt="Large floral arrangement by Flourish of Tumalo, example 8" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(9).webp" alt="Large floral arrangement by Flourish of Tumalo, example 9" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(10).webp" alt="Large floral arrangement by Flourish of Tumalo, example 10" loading="lazy" decoding="async" width="1000" height="1500" />
           <img src="images/flowers/large/large-flourish-bouquet%20(11).webp" alt="Large floral arrangement by Flourish of Tumalo, example 11" loading="lazy" decoding="async" width="1000" height="1500" />
+        <img src="images/flowers/large/large-flourish-bouquet%20(12).webp" alt="Large floral arrangement by Flourish of Tumalo, example 7" loading="lazy" decoding="async" width="1000" height="1500" />
+          <img src="images/flowers/large/large-flourish-bouquet%20(13).webp" alt="Large floral arrangement by Flourish of Tumalo, example 8" loading="lazy" decoding="async" width="1000" height="1500" />
+          <img src="images/flowers/large/large-flourish-bouquet%20(14).webp" alt="Large floral arrangement by Flourish of Tumalo, example 9" loading="lazy" decoding="async" width="1000" height="1500" />
+          <img src="images/flowers/large/large-flourish-bouquet%20(15).webp" alt="Large floral arrangement by Flourish of Tumalo, example 10" loading="lazy" decoding="async" width="1000" height="1500" />
+          <img src="images/flowers/large/large-flourish-bouquet%20(15-2).webp" alt="Large floral arrangement by Flourish of Tumalo, example 10" loading="lazy" decoding="async" width="1000" height="1500" />
+          <img src="images/flowers/large/large-flourish-bouquet%20(16).webp" alt="Large floral arrangement by Flourish of Tumalo, example 11" loading="lazy" decoding="async" width="1000" height="1500" />
         </div>
-      </section>
-    </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   
@@ -367,9 +375,5 @@
 
 <!-- Flower Tabs JavaScript -->
 <script src="flower-tabs.js"></script>
-</body>
-</html>
-
-
 </body>
 </html>
