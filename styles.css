@@ -424,7 +424,11 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 0.35s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
   z-index: 1000;
 }
 
@@ -3461,4 +3465,21 @@ p:not(.eyebrow):not(.about-eyebrow):not(.flowers-collection-eyebrow):not(.classe
 p strong,
 p b {
   font-weight: 700;
+}
+/* Mobile navigation — hide on downward scroll */
+@media (max-width: 768px) {
+  .site-header.is-hidden {
+    transform: translate3d(
+      0,
+      calc(-100% - env(safe-area-inset-top, 0px) - 10px),
+      0
+    );
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  .site-header:focus-within {
+    transform: translate3d(0, 0, 0);
+    pointer-events: auto;
+  }
 }
