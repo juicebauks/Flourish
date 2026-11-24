@@ -46,31 +46,66 @@
   }
 
   function initializeHeader() {
-    const header = document.querySelector(SELECTORS.header);
+  const header = document.querySelector(SELECTORS.header);
+  const nav = document.querySelector(SELECTORS.nav);
 
-    if (!header) return;
+  if (!header) return;
 
-    let frameRequested = false;
+  const mobileQuery = window.matchMedia("(max-width: 768px)");
 
-    const updateHeader = () => {
-      header.classList.toggle(CLASSES.scrolled, window.scrollY > 50);
-      frameRequested = false;
-    };
+  let lastScrollY = Math.max(0, window.scrollY);
+  let frameRequested = false;
 
-    const handleScroll = () => {
-      if (frameRequested) return;
+  const updateHeader = () => {
+    const currentScrollY = Math.max(0, window.scrollY);
+    const scrollDifference = currentScrollY - lastScrollY;
 
-      frameRequested = true;
-      window.requestAnimationFrame(updateHeader);
-    };
+    const menuOpen =
+      nav && nav.classList.contains(CLASSES.navOpen);
 
-    updateHeader();
+    header.classList.toggle(
+      CLASSES.scrolled,
+      currentScrollY > 50
+    );
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-  }
+    if (
+      !mobileQuery.matches ||
+      currentScrollY <= 50 ||
+      menuOpen
+    ) {
+      header.classList.remove("is-hidden");
+      lastScrollY = currentScrollY;
+    } else if (Math.abs(scrollDifference) >= 5) {
+      header.classList.toggle(
+        "is-hidden",
+        scrollDifference > 0
+      );
 
+      lastScrollY = currentScrollY;
+    }
+
+    frameRequested = false;
+  };
+
+  const handleScroll = () => {
+    if (frameRequested) return;
+
+    frameRequested = true;
+    window.requestAnimationFrame(updateHeader);
+  };
+
+  updateHeader();
+
+  window.addEventListener("scroll", handleScroll, {
+    passive: true,
+  });
+
+  mobileQuery.addEventListener("change", () => {
+    header.classList.remove("is-hidden");
+    lastScrollY = Math.max(0, window.scrollY);
+    handleScroll();
+  });
+}
   function initializeNavigation() {
     const nav = document.querySelector(SELECTORS.nav);
     const toggle = document.querySelector(SELECTORS.navToggle);
