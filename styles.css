@@ -3235,3 +3235,52 @@ body:has(.contact-form) .page-hero.small {
     background-attachment: scroll;
   }
 }
+
+/* =========================================================
+   FLOWERS PAGE — ARRANGEMENT GALLERIES
+   ========================================================= */
+.flowers-page .arrangement-galleries {
+  width: min(94%, var(--fl-maxw));
+  margin: 0 auto;
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.flowers-page .arrangement-section + .arrangement-section {
+  margin-top: clamp(4rem, 8vw, 8rem);
+}
+
+.flowers-page .arrangement-header {
+  padding-top: 0;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.flowers-page .arrangement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.flowers-page .arrangement-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center;
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .flowers-page .arrangement-galleries {
+    width: calc(100% - 2rem);
+  }
+  .flowers-page .arrangement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .flowers-page .arrangement-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
