@@ -47,7 +47,7 @@
 <link rel="stylesheet" href="https://use.typekit.net/vqm0jfl.css" />
 
   <!-- Full site stylesheet -->
-  <link href="styles.css" rel="stylesheet" />
+  <link href="styles.css?v=20261124-2" rel="stylesheet" />
 
   <!-- Page-specific structured data -->
   <script type="application/ld+json">
@@ -107,41 +107,8 @@
 
 <!-- SHARED FOOTER -->
 <div id="site-footer"></div>
-
-  
-<!-- SHARED FOOTER -->
-<div id="site-footer"></div>
-
-
-  <script src="main.js"></script>
-  <script>
-    const classesNavToggle = document.querySelector('.classes-nav-toggle');
-    const classesNav = document.querySelector('.classes-nav');
-
-    if (classesNavToggle && classesNav) {
-      classesNavToggle.addEventListener('click', () => {
-        const isOpen = classesNav.classList.toggle('is-open');
-        classesNavToggle.setAttribute('aria-expanded', String(isOpen));
-      });
-    }
-
-    const year = document.getElementById('year');
-    if (year) year.textContent = new Date().getFullYear();
-  </script>
-  
-<!-- Shared Components -->
-<script src="components/components.js"></script>
-
-
-<!-- Shared Components -->
 <script src="components/header.js"></script>
 <script src="components/footer.js"></script>
-
-<!-- Main Site JavaScript -->
-<script src="main.js"></script>
-</body>
-</html>
-
-
+<script src="main.js?v=20261124-2"></script>
 </body>
 </html>

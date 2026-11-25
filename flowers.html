@@ -35,11 +35,9 @@
   <!-- Adobe Fonts — The Seasons & DM Sans -->
 <link rel="stylesheet" href="https://use.typekit.net/vqm0jfl.css" />
 
-  <script>
-    document.documentElement.classList.add("reveal-enabled");
-  </script>
+  
   <!-- CSS -->
-  <link href="styles.css" rel="stylesheet" />
+  <link href="styles.css?v=20261124-2" rel="stylesheet" />
 </head>
 <body class="flowers-page">
   
@@ -48,17 +46,11 @@
 
 
   <main>
-    <section>
-      <section class="collection-section flowers-hero" aria-labelledby="flowers-page-title">
+    <section class="collection-section flowers-hero" aria-labelledby="flowers-page-title">
         <div class="flowers-collection-header" data-reveal="fade">
           
 
-          <div class="flowers-collection-divider" data-reveal="fade"
-          style="--delay: 300ms; --reveal-duration: 1600ms;">
-            <span></span>
-            <img alt="" aria-hidden="true" class="flowers-collection-icon" src="images/icons/flower.svg" />
-            <span></span>
-          </div>
+          
 
           <h1 id="flowers-page-title" class="flowers-collection-title" data-reveal="right"
           style="--delay: 200ms; --reveal-duration: 1600ms; --reveal-distance: 50px;">Flowers for Your Space</h1>
@@ -75,8 +67,7 @@
         </div>
       </section>
 
-      <section class="flower-shop" aria-labelledby="flower-shop-heading" data-reveal="fade"
-          style="--delay: 600ms; --reveal-duration: 1600ms;">
+      <section class="flower-shop" aria-labelledby="flower-shop-heading">
         <h2 class="sr-only" id="flower-shop-heading">Order Flowers from Flourish</h2>
         <div class="flower-shop-card">
           <!-- Tabs -->
@@ -115,14 +106,13 @@
                     <p>
                       Customize your bouquet with a preferred color palette or specific flower requests, subject to seasonal availability. Local delivery is available.<br><br>After placing your order, please call Flourish at (541) 797-0124 during store hours (Tuesday – Saturday, 11:00 AM – 5:00 PM) to discuss your bouquet details.
 </p>
-                    </p>
                   </header>
 
                   <div class="flower-product-list">
-                    <article class="flower-product-row">
+                    <article class="flower-product-row order-card">
                       <div class="flower-product-name">
                         <h3>Custom Bouquet</h3>
-                        <p>Choose from Medium, Large, or Extravagant</p>
+                        <p>Medium, Large, or Extravagant</p>
                       </div>
                       <div class="flower-product-action">
                         <a class="flower-checkout-button" href="https://e2bc9804-79d1-4ac8-91a2-4c03fb8af9be.paylinks.godaddy.com/CustomFlowerBouquet" target="_blank" rel="noopener noreferrer">
@@ -135,10 +125,10 @@
                       </div>
                     </article>
 
-                    <article class="flower-product-row">
+                    <article class="flower-product-row order-card order-card--delivery">
                       <div class="flower-product-name">
                         <h3>Bouquet Delivery</h3>
-                        <p>Optional</p>
+                        <p>Optional · within 10 miles</p>
                       </div>
                       <div class="flower-product-action">
                         <a class="flower-checkout-button" href="https://e2bc9804-79d1-4ac8-91a2-4c03fb8af9be.paylinks.godaddy.com/FlowerDelivery" target="_blank" rel="noopener noreferrer">
@@ -182,11 +172,10 @@
                     <p>
                       Enjoy fresh, seasonal flowers on a regular basis with a bouquet subscription tailored to your style. Choose your preferred color palette, request specific flowers, and enjoy convenient local delivery.<br><br>After placing your order, please call Flourish at (541) 797-0124 during store hours (Tuesday – Saturday, 11:00 AM–5:00 PM) to discuss your bouquet details.
 </p>
-                    </p>
                   </header>
 
                   <div class="flower-product-list">
-                    <article class="flower-product-row">
+                    <article class="flower-product-row order-card">
                       <div class="flower-product-name">
                         <h3>Mid-sized Arrangement</h3>
                         <p>Individually valued at $75</p>
@@ -207,7 +196,7 @@
                       </div>
                     </article>
 
-                    <article class="flower-product-row">
+                    <article class="flower-product-row order-card">
                       <div class="flower-product-name">
                         <h3>Large Arrangement</h3>
                         <p>Individually valued at $100</p>
@@ -228,10 +217,10 @@
                       </div>
                     </article>
 
-                    <article class="flower-product-row">
+                    <article class="flower-product-row order-card order-card--delivery">
                       <div class="flower-product-name">
                         <h3>Bouquet Delivery</h3>
-                        <p>Optional</p>
+                        <p>Optional · within 10 miles</p>
                       </div>
                       <div class="flower-product-action">
                         <a class="flower-checkout-button" href="https://e2bc9804-79d1-4ac8-91a2-4c03fb8af9be.paylinks.godaddy.com/FlowerDelivery" target="_blank" rel="noopener noreferrer">
@@ -256,12 +245,11 @@
           </div>
         </div>
       </section>
-    </section>
 
     <!-- Arrangement galleries -->
-    <section class="arrangement-galleries" aria-labelledby="arrangement-gallery-title" data-reveal="fade" style="--reveal-duration: 1200ms;">
+    <section class="arrangement-galleries" aria-labelledby="arrangement-gallery-title">
       <div class="arrangement-card">
-        <h2 class="flowers-collection-title arrangement-title" id="arrangement-gallery-title">Flower Arrangement Variations</h2>
+        <h2 class="flowers-collection-title arrangement-title" id="arrangement-gallery-title" data-reveal="fade">Flower Arrangement Variations</h2>
         <div class="arrangement-tabs" role="tablist" aria-label="Arrangement sizes">
           <button class="arrangement-tab is-active" type="button" role="tab" id="arrangement-small-tab" aria-controls="arrangement-small-panel" aria-selected="true" tabindex="0">Small</button>
           <button class="arrangement-tab" type="button" role="tab" id="arrangement-medium-tab" aria-controls="arrangement-medium-panel" aria-selected="false" tabindex="-1">Medium</button>
@@ -362,9 +350,9 @@
 <script src="components/footer.js"></script>
 
 <!-- Main Site JavaScript -->
-<script src="main.js"></script>
+<script src="main.js?v=20261124-2"></script>
 
 <!-- Flower Tabs JavaScript -->
-<script src="flower-tabs.js"></script>
+<script src="flower-tabs.js?v=20261124-2"></script>
 </body>
 </html>

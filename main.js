@@ -233,7 +233,7 @@
       {
         root: null,
         rootMargin: "0px 0px -10% 0px",
-        threshold: 0.08,
+        threshold: 0,
       }
     );
 
