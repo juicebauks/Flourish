@@ -3080,7 +3080,7 @@ body:has(.contact-form) .page-hero.small {
 .flowers-page .arrangement-card {
   padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 4vw, 4.5rem) clamp(2rem, 5vw, 5rem);
   border-radius: 24px;
-  background: var(--color-medium-green-2);
+  background: var(--color-tan);
   color: var(--color-dark-green-2);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.28), 0 15px 40px rgba(0, 0, 0, 0.16);
 }
@@ -3545,4 +3545,37 @@ h6,
   font-size: var(--fl-display-size);
   line-height: var(--fl-display-leading);
   letter-spacing: var(--fl-display-tracking);
+}
+/* Flower arrangement gallery tabs */
+
+.flowers-page .arrangement-tabs {
+  gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+.flowers-page .arrangement-tab {
+  padding: 0.75rem clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--color-dark-green-2);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-dark-green-2);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background .25s ease, color .25s ease;
+}
+
+/* Active tab */
+.flowers-page .arrangement-tab.is-active {
+  background: var(--color-dark-green-2);
+  color: var(--color-medium-green-4);
+}
+
+/* Hover effect */
+.flowers-page .arrangement-tab:hover {
+  background: var(--color-dark-green-2);
+  color: var(--color-medium-green-4);
+}
+
+/* Remove original underline */
+.flowers-page .arrangement-tab::after {
+  display: none;
 }
